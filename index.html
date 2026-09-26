@@ -1,558 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RedChat</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedChat</title>
 
-<style>
-*{box-sizing:border-box}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-  margin:0;
-  min-height:100vh;
-  background:#fff;
-  font-family:Arial,Helvetica,sans-serif;
-  color:#202124;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #111;
+    }
 
-.page{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:25px 16px;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      overflow-x: hidden;
+    }
 
-.main{
-  width:100%;
-  max-width:760px;
-  text-align:center;
-}
+    .page {
+      width: 100%;
+      max-width: 760px;
+      min-height: 100vh;
+      padding: 70px 22px 45px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-h1{
-  margin:0;
-  font-size:25px;
-  font-weight:400;
-}
+    .logo {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+      margin-bottom: 65px;
+    }
 
-.subtitle{
-  margin-top:11px;
-  color:#5f6368;
-  font-size:15px;
-}
+    .logo span {
+      color: #e00000;
+    }
 
-/* COUNTDOWN */
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 6vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -1.8px;
+      font-weight: 700;
+    }
 
-.countdown-title{
-  margin-top:30px;
-  font-size:13px;
-  color:#777;
-}
+    .subtitle {
+      margin-top: 17px;
+      color: #666;
+      font-size: 17px;
+      line-height: 1.5;
+    }
 
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:9px;
-  margin-top:12px;
-}
+    .countdown-title {
+      margin-top: 52px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
 
-.flip{
-  width:68px;
-  height:72px;
-  perspective:400px;
-}
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+    }
 
-.flip-card{
-  position:relative;
-  width:100%;
-  height:100%;
-  background:#202124;
-  color:white;
-  border-radius:8px;
-  overflow:hidden;
-  box-shadow:0 3px 8px rgba(0,0,0,.15);
-}
+    .time-box {
+      width: 82px;
+      height: 78px;
+      border: 1px solid #e7e7e7;
+      border-radius: 12px;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-.number{
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:25px;
-  font-weight:500;
-}
+    .number {
+      font-size: 28px;
+      line-height: 30px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
 
-.flip-card::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:50%;
-  height:1px;
-  background:rgba(255,255,255,.18);
-}
+    .label {
+      margin-top: 5px;
+      color: #999;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-.flip-animation{
-  animation:flip .45s ease-in-out;
-}
+    .flip-animation {
+      animation: flip .45s ease;
+    }
 
-@keyframes flip{
-  0%{
-    transform:rotateX(0deg);
-  }
-  45%{
-    transform:rotateX(-90deg);
-  }
-  100%{
-    transform:rotateX(0deg);
-  }
-}
+    @keyframes flip {
+      0% {
+        transform: rotateX(0deg);
+      }
+      45% {
+        transform: rotateX(-90deg);
+      }
+      100% {
+        transform: rotateX(0deg);
+      }
+    }
 
-.label{
-  margin-top:7px;
-  font-size:9px;
-  color:#888;
-  text-transform:uppercase;
-}
+    .x-button {
+      margin-top: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s ease, background .2s ease;
+      text-decoration: none;
+    }
 
-/* X */
+    .x-button:hover {
+      transform: scale(1.08);
+      background: #000;
+    }
 
-.x-button{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:42px;
-  height:42px;
-  margin:25px auto 0;
-  border-radius:50%;
-  background:#000;
-  transition:.2s;
-}
+    .x-button svg {
+      width: 21px;
+      height: 21px;
+      fill: #fff;
+    }
 
-.x-button:hover{
-  transform:scale(1.07);
-  opacity:.85;
-}
+    /* Banner */
+    .ad-label {
+      margin-top: 58px;
+      margin-bottom: 7px;
+      font-size: 9px;
+      color: #aaa;
+      letter-spacing: 1.5px;
+    }
 
-.x-logo{
-  width:19px;
-  height:19px;
-  fill:white;
-}
+    .banner {
+      width: 100%;
+      max-width: 680px;
+      min-height: 112px;
+      border: 1px solid #e5e5e5;
+      border-radius: 14px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      background: #fff;
+      box-shadow: 0 3px 15px rgba(0,0,0,.035);
+    }
 
-/* BANNER */
+    .banner-left {
+      padding-right: 15px;
+    }
 
-.banner{
-  position:relative;
-  width:100%;
-  max-width:728px;
-  min-height:118px;
-  margin:32px auto 0;
-  padding:20px 22px;
-  border:1px solid #dadce0;
-  border-radius:6px;
-  background:#fafafa;
-  display:flex;
-  align-items:center;
-  text-align:left;
-  box-shadow:0 1px 4px rgba(0,0,0,.06);
-}
+    .banner-brand {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
 
-.ad-label{
-  position:absolute;
-  top:7px;
-  right:9px;
-  font-size:8px;
-  color:#888;
-}
+    .banner-brand span {
+      color: #e00000;
+    }
 
-.banner-logo{
-  width:58px;
-  height:58px;
-  border-radius:13px;
-  background:#e50914;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  font-weight:bold;
-  margin-right:17px;
-}
+    .banner-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
 
-.banner-content{
-  flex:1;
-}
+    .banner-text {
+      color: #777;
+      font-size: 12px;
+      line-height: 1.4;
+    }
 
-.brand{
-  font-size:12px;
-  color:#777;
-  margin-bottom:4px;
-}
+    .info-button {
+      flex-shrink: 0;
+      border: none;
+      background: #111;
+      color: #fff;
+      border-radius: 9px;
+      padding: 11px 15px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s ease, transform .2s ease;
+    }
 
-.banner-title{
-  font-size:19px;
-  font-weight:600;
-  margin-bottom:5px;
-}
+    .info-button:hover {
+      opacity: .85;
+      transform: translateY(-1px);
+    }
 
-.banner-text{
-  font-size:13px;
-  color:#666;
-}
+    .footer {
+      margin-top: auto;
+      padding-top: 55px;
+      color: #aaa;
+      font-size: 11px;
+    }
 
-.banner-button{
-  margin-left:18px;
-  padding:9px 15px;
-  border-radius:5px;
-  background:#e50914;
-  color:white;
-  text-decoration:none;
-  font-size:12px;
-  font-weight:600;
-  white-space:nowrap;
-}
+    /* Popup */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.28);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+    }
 
-.banner-button:hover{
-  opacity:.9;
-}
+    .popup-overlay.active {
+      display: flex;
+    }
 
-.footer{
-  margin-top:24px;
-  color:#9aa0a6;
-  font-size:10px;
-}
+    .popup {
+      width: 100%;
+      max-width: 390px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 27px;
+      text-align: left;
+      box-shadow: 0 15px 50px rgba(0,0,0,.15);
+      animation: popup .2s ease;
+    }
 
-/* POPUP */
+    @keyframes popup {
+      from {
+        opacity: 0;
+        transform: scale(.96);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
-.overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.35);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:10;
-}
+    .popup h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
 
-.popup{
-  width:100%;
-  max-width:380px;
-  padding:25px;
-  background:white;
-  border-radius:12px;
-  text-align:center;
-  box-shadow:0 10px 35px rgba(0,0,0,.2);
-}
+    .popup p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
 
-.popup h2{
-  margin:0 0 10px;
-  font-size:20px;
-  font-weight:500;
-}
+    .close-button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 11px;
+      border: none;
+      border-radius: 9px;
+      background: #f1f1f1;
+      color: #111;
+      font-weight: 600;
+      cursor: pointer;
+    }
 
-.popup p{
-  margin:0;
-  color:#666;
-  font-size:14px;
-  line-height:1.5;
-}
+    @media (max-width: 500px) {
+      .page {
+        padding-top: 48px;
+      }
 
-.close{
-  margin-top:18px;
-  padding:9px 18px;
-  border:0;
-  border-radius:6px;
-  background:#202124;
-  color:white;
-  cursor:pointer;
-}
+      .logo {
+        margin-bottom: 48px;
+      }
 
-@media(max-width:600px){
+      .countdown {
+        gap: 6px;
+      }
 
-  h1{
-    font-size:22px;
-  }
+      .time-box {
+        width: 70px;
+        height: 70px;
+      }
 
-  .countdown{
-    gap:5px;
-  }
+      .number {
+        font-size: 24px;
+      }
 
-  .flip{
-    width:58px;
-    height:64px;
-  }
+      .banner {
+        align-items: flex-start;
+      }
 
-  .number{
-    font-size:21px;
-  }
+      .banner-title {
+        font-size: 16px;
+      }
 
-  .banner{
-    padding:25px 15px 18px;
-  }
+      .info-button {
+        padding: 10px 12px;
+      }
+    }
 
-  .banner-logo{
-    width:48px;
-    height:48px;
-    font-size:23px;
-    margin-right:12px;
-  }
+    @media (max-width: 370px) {
+      .time-box {
+        width: 62px;
+      }
 
-  .banner-title{
-    font-size:16px;
-  }
-
-  .banner-text{
-    font-size:12px;
-  }
-
-  .banner-button{
-    padding:8px 11px;
-    margin-left:10px;
-  }
-}
-
-@media(max-width:430px){
-
-  .banner{
-    display:block;
-    text-align:center;
-  }
-
-  .banner-logo{
-    margin:0 auto 10px;
-  }
-
-  .banner-content{
-    text-align:center;
-  }
-
-  .banner-button{
-    display:inline-block;
-    margin:13px 0 0;
-  }
-}
-</style>
+      .label {
+        font-size: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="page">
+  <main class="page">
 
-<div class="main">
+    <div class="logo">
+      <span>Red</span>Chat
+    </div>
 
-<h1>This Service Has Been Suspended</h1>
+    <h1>This Service Has Been Suspended</h1>
 
-<div class="subtitle">
-RedChat is currently unavailable.
-</div>
+    <div class="subtitle">
+      RedChat is currently unavailable.
+    </div>
 
-<div class="countdown-title">
-RedChat returns on October 1
-</div>
+    <div class="countdown-title">
+      New period begins in
+    </div>
 
-<div class="countdown">
+    <div class="countdown">
 
-  <div>
-    <div class="flip">
-      <div class="flip-card" id="daysCard">
+      <div class="time-box">
         <div class="number" id="days">00</div>
+        <div class="label">Days</div>
       </div>
-    </div>
-    <div class="label">Days</div>
-  </div>
 
-  <div>
-    <div class="flip">
-      <div class="flip-card" id="hoursCard">
+      <div class="time-box">
         <div class="number" id="hours">00</div>
+        <div class="label">Hours</div>
       </div>
-    </div>
-    <div class="label">Hours</div>
-  </div>
 
-  <div>
-    <div class="flip">
-      <div class="flip-card" id="minutesCard">
+      <div class="time-box">
         <div class="number" id="minutes">00</div>
+        <div class="label">Minutes</div>
       </div>
-    </div>
-    <div class="label">Minutes</div>
-  </div>
 
-  <div>
-    <div class="flip">
-      <div class="flip-card" id="secondsCard">
+      <div class="time-box">
         <div class="number" id="seconds">00</div>
+        <div class="label">Seconds</div>
       </div>
+
     </div>
-    <div class="label">Seconds</div>
+
+    <!-- X / RedChatBusiness -->
+    <a
+      href="https://x.com/RedChatBusiness"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="x-button"
+      aria-label="RedChat on X"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26L22.827 21.75h-6.587l-5.157-6.746-5.902 6.746H1.87l7.73-8.835L1.173 2.25H7.93l4.66 6.163L18.244 2.25Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+      </svg>
+    </a>
+
+    <!-- Advertisement Banner -->
+    <div class="ad-label">ADVERTISEMENT</div>
+
+    <section class="banner">
+
+      <div class="banner-left">
+        <div class="banner-brand">
+          <span>Red</span>Chat
+        </div>
+
+        <div class="banner-title">
+          Yeni dönem 1 Ekim'de! 🚀
+        </div>
+
+        <div class="banner-text">
+          RedChat yeni dönem için hazırlanıyor.
+          Daha fazlası çok yakında.
+        </div>
+      </div>
+
+      <button class="info-button" onclick="openPopup()">
+        Daha Fazla Bilgi
+      </button>
+
+    </section>
+
+    <div class="footer">
+      © 2026 RedChat
+    </div>
+
+  </main>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popupOverlay" onclick="closePopupOutside(event)">
+    <div class="popup">
+
+      <h2>RedChat Yeni Dönem</h2>
+
+      <p>
+        RedChat şu anda geçici olarak kullanılamıyor.
+        Yeni dönem 1 Ekim 2026 tarihinde başlayacak.
+        Güncellemeler için RedChatBusiness hesabını takip edebilirsin.
+      </p>
+
+      <button class="close-button" onclick="closePopup()">
+        Kapat
+      </button>
+
+    </div>
   </div>
 
-</div>
+  <script>
+    /*
+      Sayaç gerçek tarihe bağlıdır.
+      Hedef: 1 Ekim 2026 00:00 Türkiye saati (+03:00)
 
-<!-- X BUTTON -->
+      Siteyi yeniden deploy etmek veya HTML'yi güncellemek
+      sayacı sıfırlamaz.
+    */
 
-<a
-class="x-button"
-href="https://x.com/RedChatOfficial"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="RedChat on X">
+    const targetDate =
+      new Date("2026-10-01T00:00:00+03:00").getTime();
 
-<svg class="x-logo" viewBox="0 0 24 24">
-<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817-5.963 6.817H1.684l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
-</svg>
+    const elements = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds")
+    };
 
-</a>
+    const previousValues = {
+      days: null,
+      hours: null,
+      minutes: null,
+      seconds: null
+    };
 
-<!-- BANNER -->
+    function pad(number) {
+      return String(number).padStart(2, "0");
+    }
 
-<div class="banner">
+    function updateCountdown() {
 
-<div class="ad-label">ADVERTISEMENT</div>
+      const now = Date.now();
+      let difference = targetDate - now;
 
-<div class="banner-logo">R</div>
+      if (difference <= 0) {
+        elements.days.textContent = "00";
+        elements.hours.textContent = "00";
+        elements.minutes.textContent = "00";
+        elements.seconds.textContent = "00";
+        return;
+      }
 
-<div class="banner-content">
+      const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      );
 
-<div class="brand">RedChat</div>
+      difference %= 1000 * 60 * 60 * 24;
 
-<div class="banner-title">
-Yeni dönem 1 Ekim'de! 🚀
-</div>
+      const hours = Math.floor(
+        difference / (1000 * 60 * 60)
+      );
 
-<div class="banner-text">
-Daha iyi bir RedChat deneyimi için hazırlanıyoruz.
-</div>
+      difference %= 1000 * 60 * 60;
 
-</div>
+      const minutes = Math.floor(
+        difference / (1000 * 60)
+      );
 
-<a
-class="banner-button"
-href="#"
-onclick="showInfo();return false;">
-Daha Fazla Bilgi
-</a>
+      const seconds = Math.floor(
+        (difference % (1000 * 60)) / 1000
+      );
 
-</div>
+      const values = {
+        days: pad(days),
+        hours: pad(hours),
+        minutes: pad(minutes),
+        seconds: pad(seconds)
+      };
 
-<div class="footer">
-RedChat • 2026
-</div>
+      Object.keys(values).forEach(key => {
 
-</div>
-</div>
+        if (
+          previousValues[key] !== null &&
+          previousValues[key] !== values[key]
+        ) {
+          const box = elements[key].parentElement;
 
-<!-- POPUP -->
+          box.classList.remove("flip-animation");
 
-<div class="overlay" id="infoPopup">
+          void box.offsetWidth;
 
-<div class="popup">
+          box.classList.add("flip-animation");
+        }
 
-<h2>🔴 RedChat</h2>
+        elements[key].textContent = values[key];
+        previousValues[key] = values[key];
+      });
+    }
 
-<p>
-RedChat şu anda geçici olarak kapalıdır.
-Yeni dönem 1 Ekim'de başlayacaktır.
-</p>
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-<button class="close" onclick="closeInfo()">
-Kapat
-</button>
 
-</div>
+    function openPopup() {
+      document
+        .getElementById("popupOverlay")
+        .classList.add("active");
+    }
 
-</div>
+    function closePopup() {
+      document
+        .getElementById("popupOverlay")
+        .classList.remove("active");
+    }
 
-<script>
+    function closePopupOutside(event) {
+      if (event.target.id === "popupOverlay") {
+        closePopup();
+      }
+    }
 
-/* 1 Ekim 2026 - Türkiye saati */
-const targetDate =
-new Date("2026-10-01T00:00:00+03:00").getTime();
-
-let previous = {
-  days:null,
-  hours:null,
-  minutes:null,
-  seconds:null
-};
-
-function updateUnit(id, cardId, value, key){
-
-  const number =
-  document.getElementById(id);
-
-  const card =
-  document.getElementById(cardId);
-
-  const formatted =
-  String(value).padStart(2,"0");
-
-  if(previous[key] !== formatted){
-
-    number.textContent = formatted;
-
-    card.classList.remove("flip-animation");
-
-    void card.offsetWidth;
-
-    card.classList.add("flip-animation");
-
-    previous[key] = formatted;
-  }
-}
-
-function updateCountdown(){
-
-  const now = Date.now();
-  const difference = targetDate - now;
-
-  if(difference <= 0){
-
-    updateUnit("days","daysCard",0,"days");
-    updateUnit("hours","hoursCard",0,"hours");
-    updateUnit("minutes","minutesCard",0,"minutes");
-    updateUnit("seconds","secondsCard",0,"seconds");
-
-    return;
-  }
-
-  const totalSeconds =
-  Math.floor(difference / 1000);
-
-  const days =
-  Math.floor(totalSeconds / 86400);
-
-  const hours =
-  Math.floor((totalSeconds % 86400) / 3600);
-
-  const minutes =
-  Math.floor((totalSeconds % 3600) / 60);
-
-  const seconds =
-  totalSeconds % 60;
-
-  updateUnit("days","daysCard",days,"days");
-  updateUnit("hours","hoursCard",hours,"hours");
-  updateUnit("minutes","minutesCard",minutes,"minutes");
-  updateUnit("seconds","secondsCard",seconds,"seconds");
-}
-
-function showInfo(){
-  document.getElementById("infoPopup").style.display="flex";
-}
-
-function closeInfo(){
-  document.getElementById("infoPopup").style.display="none";
-}
-
-updateCountdown();
-setInterval(updateCountdown,1000);
-
-</script>
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closePopup();
+      }
+    });
+  </script>
 
 </body>
 </html>
