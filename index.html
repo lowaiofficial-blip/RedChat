@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>RedChat</title>
+
+  <!-- RedChat Favicon -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23e00000'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='58' font-weight='700' text-anchor='middle' fill='white'%3ER%3C/text%3E%3C/svg%3E"
+  >
 
   <style>
     * {
@@ -92,6 +100,7 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      perspective: 400px;
     }
 
     .number {
@@ -117,9 +126,11 @@
       0% {
         transform: rotateX(0deg);
       }
+
       45% {
         transform: rotateX(-90deg);
       }
+
       100% {
         transform: rotateX(0deg);
       }
@@ -149,7 +160,7 @@
       fill: #fff;
     }
 
-    /* Banner */
+    /* Advertisement */
     .ad-label {
       margin-top: 58px;
       margin-bottom: 7px;
@@ -256,6 +267,7 @@
         opacity: 0;
         transform: scale(.96);
       }
+
       to {
         opacity: 1;
         transform: scale(1);
@@ -353,22 +365,22 @@
 
     <div class="countdown">
 
-      <div class="time-box">
+      <div class="time-box" id="daysBox">
         <div class="number" id="days">00</div>
         <div class="label">Days</div>
       </div>
 
-      <div class="time-box">
+      <div class="time-box" id="hoursBox">
         <div class="number" id="hours">00</div>
         <div class="label">Hours</div>
       </div>
 
-      <div class="time-box">
+      <div class="time-box" id="minutesBox">
         <div class="number" id="minutes">00</div>
         <div class="label">Minutes</div>
       </div>
 
-      <div class="time-box">
+      <div class="time-box" id="secondsBox">
         <div class="number" id="seconds">00</div>
         <div class="label">Seconds</div>
       </div>
@@ -381,7 +393,7 @@
       target="_blank"
       rel="noopener noreferrer"
       class="x-button"
-      aria-label="RedChat on X"
+      aria-label="RedChatBusiness on X"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M18.244 2.25h3.308l-7.227 8.26L22.827 21.75h-6.587l-5.157-6.746-5.902 6.746H1.87l7.73-8.835L1.173 2.25H7.93l4.66 6.163L18.244 2.25Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
@@ -389,11 +401,14 @@
     </a>
 
     <!-- Advertisement Banner -->
-    <div class="ad-label">ADVERTISEMENT</div>
+    <div class="ad-label">
+      ADVERTISEMENT
+    </div>
 
     <section class="banner">
 
       <div class="banner-left">
+
         <div class="banner-brand">
           <span>Red</span>Chat
         </div>
@@ -406,6 +421,7 @@
           RedChat yeni dönem için hazırlanıyor.
           Daha fazlası çok yakında.
         </div>
+
       </div>
 
       <button class="info-button" onclick="openPopup()">
@@ -420,8 +436,14 @@
 
   </main>
 
+
   <!-- Popup -->
-  <div class="popup-overlay" id="popupOverlay" onclick="closePopupOutside(event)">
+  <div
+    class="popup-overlay"
+    id="popupOverlay"
+    onclick="closePopupOutside(event)"
+  >
+
     <div class="popup">
 
       <h2>RedChat Yeni Dönem</h2>
@@ -437,15 +459,19 @@
       </button>
 
     </div>
+
   </div>
+
 
   <script>
     /*
       Sayaç gerçek tarihe bağlıdır.
-      Hedef: 1 Ekim 2026 00:00 Türkiye saati (+03:00)
 
-      Siteyi yeniden deploy etmek veya HTML'yi güncellemek
-      sayacı sıfırlamaz.
+      Hedef:
+      1 Ekim 2026 00:00 Türkiye saati (+03:00)
+
+      Site yeniden deploy edilse veya HTML güncellense bile
+      sayaç baştan başlamaz.
     */
 
     const targetDate =
@@ -456,6 +482,13 @@
       hours: document.getElementById("hours"),
       minutes: document.getElementById("minutes"),
       seconds: document.getElementById("seconds")
+    };
+
+    const boxes = {
+      days: document.getElementById("daysBox"),
+      hours: document.getElementById("hoursBox"),
+      minutes: document.getElementById("minutesBox"),
+      seconds: document.getElementById("secondsBox")
     };
 
     const previousValues = {
@@ -472,13 +505,16 @@
     function updateCountdown() {
 
       const now = Date.now();
+
       let difference = targetDate - now;
 
       if (difference <= 0) {
+
         elements.days.textContent = "00";
         elements.hours.textContent = "00";
         elements.minutes.textContent = "00";
         elements.seconds.textContent = "00";
+
         return;
       }
 
@@ -515,23 +551,26 @@
           previousValues[key] !== null &&
           previousValues[key] !== values[key]
         ) {
-          const box = elements[key].parentElement;
 
-          box.classList.remove("flip-animation");
+          boxes[key].classList.remove("flip-animation");
 
-          void box.offsetWidth;
+          void boxes[key].offsetWidth;
 
-          box.classList.add("flip-animation");
+          boxes[key].classList.add("flip-animation");
         }
 
         elements[key].textContent = values[key];
+
         previousValues[key] = values[key];
       });
     }
 
     updateCountdown();
+
     setInterval(updateCountdown, 1000);
 
+
+    /* Popup */
 
     function openPopup() {
       document
@@ -546,15 +585,19 @@
     }
 
     function closePopupOutside(event) {
+
       if (event.target.id === "popupOverlay") {
         closePopup();
       }
+
     }
 
     document.addEventListener("keydown", function(event) {
+
       if (event.key === "Escape") {
         closePopup();
       }
+
     });
   </script>
 
