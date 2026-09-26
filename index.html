@@ -6,42 +6,257 @@
   <title>RedChat</title>
 
   <style>
-    html, body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      font-family: Arial, Helvetica, sans-serif;
+    * {
+      box-sizing: border-box;
     }
 
-    .container {
-      height: 100%;
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #202124;
+    }
+
+    .page {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 25px;
       text-align: center;
     }
 
     h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: 25px;
       font-weight: 400;
-      color: #202124;
     }
 
-    p {
-      margin-top: 12px;
-      font-size: 15px;
+    .subtitle {
+      margin-top: 11px;
       color: #5f6368;
+      font-size: 15px;
+    }
+
+    /* BANNER */
+    .banner {
+      width: 100%;
+      max-width: 728px;
+      min-height: 120px;
+      margin-top: 38px;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      background: #fafafa;
+      display: flex;
+      align-items: center;
+      padding: 18px 24px;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+
+    .ad-tag {
+      position: absolute;
+      top: 7px;
+      right: 9px;
+      font-size: 9px;
+      color: #888;
+      border: 1px solid #ccc;
+      padding: 2px 5px;
+      border-radius: 2px;
+    }
+
+    .banner-logo {
+      width: 62px;
+      height: 62px;
+      border-radius: 14px;
+      background: #e50914;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-right: 18px;
+    }
+
+    .banner-content {
+      flex: 1;
+    }
+
+    .banner-brand {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .banner-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .banner-text {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .banner-button {
+      background: #e50914;
+      color: white;
+      text-decoration: none;
+      padding: 10px 17px;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-left: 18px;
+      cursor: pointer;
+    }
+
+    .banner-button:hover {
+      opacity: .9;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 11px;
+      color: #9aa0a6;
+    }
+
+    /* POPUP */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.35);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .popup {
+      width: 100%;
+      max-width: 380px;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,.2);
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .popup p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .close {
+      margin-top: 12px;
+      border: 0;
+      background: #202124;
+      color: white;
+      padding: 9px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 22px 16px;
+      }
+
+      .banner-logo {
+        margin: 0 0 12px;
+      }
+
+      .banner-button {
+        margin: 14px 0 0;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+
+  <main class="page">
+
     <h1>This Service Has Been Suspended</h1>
-    <p>RedChat is currently unavailable.</p>
+
+    <div class="subtitle">
+      RedChat is currently unavailable.
+    </div>
+
+    <!-- REDCHAT BANNER -->
+    <div class="banner">
+
+      <div class="ad-tag">ADVERTISEMENT</div>
+
+      <div class="banner-logo">R</div>
+
+      <div class="banner-content">
+        <div class="banner-brand">RedChat</div>
+
+        <div class="banner-title">
+          Yeni dönem 1 Ekim'de! 🚀
+        </div>
+
+        <div class="banner-text">
+          RedChat yeni döneme hazırlanıyor. Çok yakında yeniden buradayız.
+        </div>
+      </div>
+
+      <div class="banner-button" onclick="showInfo()">
+        Daha Fazla Bilgi
+      </div>
+
+    </div>
+
+    <div class="footer">
+      RedChat • 2026
+    </div>
+
+  </main>
+
+  <!-- INFO POPUP -->
+  <div class="overlay" id="infoPopup">
+
+    <div class="popup">
+
+      <h2>🔴 RedChat</h2>
+
+      <p>
+        RedChat şu anda geçici olarak kapalıdır.
+        Yeni dönem 1 Ekim'de başlayacaktır.
+      </p>
+
+      <button class="close" onclick="closeInfo()">
+        Kapat
+      </button>
+
+    </div>
+
   </div>
+
+  <script>
+    function showInfo() {
+      document.getElementById("infoPopup").style.display = "flex";
+    }
+
+    function closeInfo() {
+      document.getElementById("infoPopup").style.display = "none";
+    }
+  </script>
+
 </body>
 </html>
