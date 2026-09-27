@@ -46,7 +46,7 @@
       align-items: center;
     }
 
-    /* REDCHAT */
+    /* REDCHAT LOGO */
 
     .logo {
       font-size: 30px;
@@ -58,6 +58,8 @@
     .logo span {
       color: #e00000;
     }
+
+    /* MAIN */
 
     h1 {
       margin: 0;
@@ -140,7 +142,7 @@
       }
     }
 
-    /* X */
+    /* X BUTTON */
 
     .x-button {
       margin-top: 30px;
@@ -168,7 +170,7 @@
       fill: #fff;
     }
 
-    /* ADVERTISEMENT */
+    /* AD */
 
     .ad-label {
       margin-top: 58px;
@@ -194,7 +196,7 @@
       gap: 18px;
     }
 
-    /* LOGO ALANI */
+    /* NEW REDCHAT ADS LOGO */
 
     .ad-logo-wrap {
       width: 125px;
@@ -487,7 +489,7 @@
 
     </div>
 
-    <!-- X BUTTON -->
+    <!-- X -->
 
     <a
       href="https://x.com/RedChatBusiness"
@@ -496,12 +498,14 @@
       class="x-button"
       aria-label="RedChatBusiness on X"
     >
+
       <svg
         viewBox="0 0 24 24"
         aria-hidden="true"
       >
         <path d="M18.244 2.25h3.308l-7.227 8.26L22.827 21.75h-6.587l-5.157-6.746-5.902 6.746H1.87l7.73-8.835L1.173 2.25H7.93l4.66 6.163L18.244 2.25Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
       </svg>
+
     </a>
 
     <!-- ADVERTISEMENT -->
@@ -516,7 +520,7 @@
 
         <img
           class="ad-logo"
-          src="https://imgur.com/fk90LJq.png"
+          src="https://imgur.com/TpOnLEJ.png"
           alt="RedChat Ads"
         >
 
@@ -583,7 +587,7 @@
   </div>
 
 
-  <!-- OVERLOAD -->
+  <!-- OVERLOAD SCREEN -->
 
   <div id="overloadScreen">
 
@@ -601,7 +605,9 @@
     ========================= */
 
     const targetDate =
-      new Date("2026-10-01T00:00:00+03:00").getTime();
+      new Date(
+        "2026-10-01T00:00:00+03:00"
+      ).getTime();
 
     const elements = {
       days: document.getElementById("days"),
@@ -632,7 +638,8 @@
 
       const now = Date.now();
 
-      let difference = targetDate - now;
+      let difference =
+        targetDate - now;
 
       if (difference <= 0) {
 
@@ -646,26 +653,33 @@
 
       const days =
         Math.floor(
-          difference / (1000 * 60 * 60 * 24)
+          difference /
+          (1000 * 60 * 60 * 24)
         );
 
-      difference %= 1000 * 60 * 60 * 24;
+      difference %=
+        1000 * 60 * 60 * 24;
 
       const hours =
         Math.floor(
-          difference / (1000 * 60 * 60)
+          difference /
+          (1000 * 60 * 60)
         );
 
-      difference %= 1000 * 60 * 60;
+      difference %=
+        1000 * 60 * 60;
 
       const minutes =
         Math.floor(
-          difference / (1000 * 60)
+          difference /
+          (1000 * 60)
         );
 
       const seconds =
         Math.floor(
-          (difference % (1000 * 60)) / 1000
+          (difference %
+          (1000 * 60)) /
+          1000
         );
 
       const values = {
@@ -682,15 +696,16 @@
           previousValues[key] !== values[key]
         ) {
 
-          boxes[key].classList.remove(
-            "flip-animation"
-          );
+          boxes[key]
+            .classList
+            .remove("flip-animation");
 
           void boxes[key].offsetWidth;
 
-          boxes[key].classList.add(
-            "flip-animation"
-          );
+          boxes[key]
+            .classList
+            .add("flip-animation");
+
         }
 
         elements[key].textContent =
@@ -719,7 +734,8 @@
 
       document
         .getElementById("popupOverlay")
-        .classList.add("active");
+        .classList
+        .add("active");
 
     }
 
@@ -727,14 +743,16 @@
 
       document
         .getElementById("popupOverlay")
-        .classList.remove("active");
+        .classList
+        .remove("active");
 
     }
 
     function closePopupOutside(event) {
 
       if (
-        event.target.id === "popupOverlay"
+        event.target.id ===
+        "popupOverlay"
       ) {
 
         closePopup();
@@ -758,11 +776,11 @@
     /* =========================
        OVERLOAD SCREEN
        
-       10 seconds:
-       Show overload screen.
+       10 seconds after opening:
+       Show screen.
 
-       5 seconds:
-       Return to RedChat.
+       After 5 seconds:
+       Return to page.
 
        Only once per tab.
     ========================= */
@@ -781,9 +799,9 @@
 
       setTimeout(() => {
 
-        overloadScreen.classList.add(
-          "active"
-        );
+        overloadScreen
+          .classList
+          .add("active");
 
         sessionStorage.setItem(
           "redchat_overload_shown",
@@ -792,9 +810,9 @@
 
         setTimeout(() => {
 
-          overloadScreen.classList.remove(
-            "active"
-          );
+          overloadScreen
+            .classList
+            .remove("active");
 
         }, 5000);
 
