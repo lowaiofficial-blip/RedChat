@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>RedChat</title>
 
   <link
     rel="icon"
-    type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23e00000'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='58' font-weight='700' text-anchor='middle' fill='white'%3ER%3C/text%3E%3C/svg%3E"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23e50914'/%3E%3Ctext x='50' y='69' text-anchor='middle' font-family='Arial' font-size='58' font-weight='700' fill='white'%3ER%3C/text%3E%3C/svg%3E"
   >
 
   <style>
@@ -25,178 +23,133 @@
       min-height: 100%;
       font-family: Arial, Helvetica, sans-serif;
       background: #fff;
-      color: #111;
+      color: #202124;
     }
 
     body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
       overflow-x: hidden;
     }
 
     .page {
       width: 100%;
       max-width: 760px;
-      min-height: 100vh;
+      margin: 0 auto;
       padding: 70px 22px 45px;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
-
-    /* REDCHAT LOGO */
 
     .logo {
-      font-size: 30px;
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 25px;
+      border-radius: 17px;
+      background: #e50914;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 36px;
       font-weight: 700;
-      letter-spacing: -1.2px;
-      margin-bottom: 65px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
     }
-
-    .logo span {
-      color: #e00000;
-    }
-
-    /* MAIN */
 
     h1 {
       margin: 0;
-      font-size: clamp(30px, 6vw, 48px);
-      line-height: 1.1;
-      letter-spacing: -1.8px;
-      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -0.6px;
     }
 
     .subtitle {
-      margin-top: 17px;
-      color: #666;
-      font-size: 17px;
-      line-height: 1.5;
-    }
-
-    /* COUNTDOWN */
-
-    .countdown-title {
-      margin-top: 52px;
-      margin-bottom: 18px;
-      font-size: 13px;
-      color: #888;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 600;
+      margin: 13px 0 0;
+      font-size: 16px;
+      color: #5f6368;
     }
 
     .countdown {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      width: 100%;
+      gap: 12px;
+      margin-top: 38px;
+      flex-wrap: wrap;
     }
 
     .time-box {
-      width: 82px;
-      height: 78px;
-      border: 1px solid #e7e7e7;
+      min-width: 90px;
+      padding: 17px 12px;
+      border: 1px solid #e5e5e5;
       border-radius: 12px;
-      background: #fafafa;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      perspective: 400px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
     }
 
-    .number {
-      font-size: 28px;
-      line-height: 30px;
-      font-weight: 700;
-      font-variant-numeric: tabular-nums;
+    .time-number {
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 1;
+      transition: transform .18s ease, opacity .18s ease;
     }
 
-    .label {
-      margin-top: 5px;
-      color: #999;
-      font-size: 10px;
+    .time-number.flip {
+      transform: translateY(-5px);
+      opacity: .35;
+    }
+
+    .time-label {
+      margin-top: 9px;
+      font-size: 11px;
+      color: #80868b;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: .5px;
     }
-
-    .flip-animation {
-      animation: flip .45s ease;
-    }
-
-    @keyframes flip {
-      0% {
-        transform: rotateX(0deg);
-      }
-
-      45% {
-        transform: rotateX(-90deg);
-      }
-
-      100% {
-        transform: rotateX(0deg);
-      }
-    }
-
-    /* X BUTTON */
 
     .x-button {
-      margin-top: 30px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #111;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition:
-        transform .2s ease,
-        background .2s ease;
+      margin-top: 34px;
+      padding: 11px 19px;
+      border-radius: 9px;
+      border: 1px solid #dadce0;
+      background: #fff;
+      color: #202124;
       text-decoration: none;
+      font-size: 14px;
+      transition: .2s ease;
     }
 
     .x-button:hover {
-      transform: scale(1.08);
-      background: #000;
+      background: #f8f9fa;
+      border-color: #c8c8c8;
     }
 
-    .x-button svg {
-      width: 21px;
-      height: 21px;
-      fill: #fff;
+    .ads {
+      margin-top: 48px;
+      text-align: left;
     }
-
-    /* AD */
 
     .ad-label {
-      margin-top: 58px;
-      margin-bottom: 8px;
-      font-size: 9px;
-      color: #aaa;
-      letter-spacing: 1.5px;
+      margin-bottom: 9px;
+      font-size: 10px;
+      color: #9aa0a6;
+      letter-spacing: 1px;
+      text-align: center;
+      font-weight: 600;
     }
 
-    .banner {
+    .ad-banner {
       width: 100%;
-      max-width: 680px;
-      min-height: 125px;
-      border: 1px solid #e5e5e5;
+      min-height: 112px;
+      padding: 18px;
+      border: 1px solid #e4e4e4;
       border-radius: 14px;
-      padding: 18px 20px;
+      background: #fff;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      text-align: left;
-      background: #fff;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, .035);
       gap: 18px;
+      box-shadow: 0 2px 9px rgba(0, 0, 0, 0.035);
     }
-
-    /* NEW REDCHAT ADS LOGO */
 
     .ad-logo-wrap {
       width: 125px;
@@ -217,67 +170,99 @@
       display: block;
     }
 
-    .banner-left {
+    .ad-content {
       flex: 1;
       min-width: 0;
     }
 
-    .banner-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .banner-text {
-      color: #777;
-      font-size: 12px;
-      line-height: 1.4;
-    }
-
-    .info-button {
-      flex-shrink: 0;
-      border: none;
-      background: #111;
-      color: #fff;
-      border-radius: 9px;
-      padding: 11px 15px;
-      font-size: 12px;
+    .ad-title {
+      margin: 0;
+      font-size: 17px;
       font-weight: 600;
+      color: #202124;
+    }
+
+    .ad-text {
+      margin: 6px 0 0;
+      font-size: 13px;
+      line-height: 1.45;
+      color: #5f6368;
+    }
+
+    .ad-button {
+      margin-top: 12px;
+      border: 0;
+      padding: 8px 13px;
+      border-radius: 7px;
+      background: #202124;
+      color: #fff;
+      font-size: 12px;
       cursor: pointer;
-      transition:
-        opacity .2s ease,
-        transform .2s ease;
     }
 
-    .info-button:hover {
-      opacity: .85;
-      transform: translateY(-1px);
+    /* ChatixAI reklamı */
+
+    .sponsored-ad {
+      margin-top: 18px;
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
 
-    /* FOOTER */
-
-    .footer {
-      margin-top: auto;
-      padding-top: 55px;
-      color: #aaa;
-      font-size: 11px;
+    .chatix-banner {
+      width: 100%;
+      min-height: 150px;
+      border: 1px solid #e4e4e4;
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 2px 9px rgba(0, 0, 0, 0.035);
+      transition: transform .18s ease, box-shadow .18s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* POPUP */
+    .chatix-banner:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.07);
+    }
+
+    .chatix-banner img {
+      width: 100%;
+      height: auto;
+      max-height: 260px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .sponsored-label {
+      margin-top: 7px;
+      font-size: 9px;
+      color: #9aa0a6;
+      text-align: right;
+      letter-spacing: .4px;
+    }
 
     .popup-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, .28);
-      display: none;
+      background: rgba(0, 0, 0, .35);
+      display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .2s ease;
+      z-index: 5000;
     }
 
     .popup-overlay.active {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
 
     .popup {
@@ -286,48 +271,39 @@
       background: #fff;
       border-radius: 16px;
       padding: 27px;
-      text-align: left;
-      box-shadow: 0 15px 50px rgba(0, 0, 0, .15);
-      animation: popup .2s ease;
-    }
-
-    @keyframes popup {
-      from {
-        opacity: 0;
-        transform: scale(.96);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+      text-align: center;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, .15);
     }
 
     .popup h2 {
-      margin: 0 0 10px;
-      font-size: 20px;
+      margin: 0;
+      font-size: 21px;
+      font-weight: 600;
     }
 
     .popup p {
-      margin: 0;
-      color: #666;
+      margin: 13px 0 20px;
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.55;
+      color: #5f6368;
     }
 
-    .close-button {
-      margin-top: 20px;
-      width: 100%;
-      padding: 11px;
-      border: none;
-      border-radius: 9px;
-      background: #f1f1f1;
-      color: #111;
-      font-weight: 600;
+    .popup-close {
+      border: 1px solid #dadce0;
+      background: #fff;
+      border-radius: 8px;
+      padding: 9px 17px;
       cursor: pointer;
+      font-size: 13px;
     }
 
-    /* OVERLOAD SCREEN */
+    footer {
+      margin-top: 48px;
+      color: #9aa0a6;
+      font-size: 12px;
+    }
+
+    /* Overload ekranı */
 
     #overloadScreen {
       position: fixed;
@@ -335,17 +311,13 @@
       width: 100%;
       height: 100%;
       background: #fff;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-
       z-index: 9999;
-
       transition: opacity .2s ease;
     }
 
@@ -364,35 +336,35 @@
       padding: 20px;
     }
 
-    /* MOBILE */
-
     @media (max-width: 500px) {
-
       .page {
-        padding-top: 48px;
+        padding: 52px 16px 35px;
       }
 
-      .logo {
-        margin-bottom: 48px;
+      h1 {
+        font-size: 27px;
+      }
+
+      .subtitle {
+        font-size: 14px;
       }
 
       .countdown {
-        gap: 6px;
+        gap: 7px;
       }
 
       .time-box {
-        width: 70px;
-        height: 70px;
+        min-width: 76px;
+        padding: 14px 9px;
       }
 
-      .number {
-        font-size: 24px;
+      .time-number {
+        font-size: 23px;
       }
 
-      .banner {
-        align-items: center;
-        padding: 16px;
-        gap: 12px;
+      .ad-banner {
+        padding: 13px;
+        gap: 11px;
       }
 
       .ad-logo-wrap {
@@ -405,39 +377,16 @@
         height: 58px;
       }
 
-      .banner-title {
+      .ad-title {
         font-size: 15px;
       }
 
-      .banner-text {
-        font-size: 11px;
+      .ad-text {
+        font-size: 12px;
       }
 
-      .info-button {
-        padding: 10px 12px;
-      }
-    }
-
-    @media (max-width: 370px) {
-
-      .time-box {
-        width: 62px;
-      }
-
-      .label {
-        font-size: 8px;
-      }
-
-      .banner {
-        flex-wrap: wrap;
-      }
-
-      .ad-logo-wrap {
-        width: 100px;
-      }
-
-      .info-button {
-        width: 100%;
+      .chatix-banner {
+        min-height: 100px;
       }
     }
   </style>
@@ -447,127 +396,121 @@
 
   <main class="page">
 
-    <div class="logo">
-      <span>Red</span>Chat
-    </div>
+    <div class="logo">R</div>
 
-    <h1>
-      This Service Has Been Suspended
-    </h1>
+    <h1>This Service Has Been Suspended</h1>
 
-    <div class="subtitle">
+    <p class="subtitle">
       RedChat is currently unavailable.
-    </div>
-
-    <!-- COUNTDOWN -->
-
-    <div class="countdown-title">
-      New period begins in
-    </div>
+    </p>
 
     <div class="countdown">
 
-      <div class="time-box" id="daysBox">
-        <div class="number" id="days">00</div>
-        <div class="label">Days</div>
+      <div class="time-box">
+        <div class="time-number" id="daysBox">00</div>
+        <div class="time-label">Days</div>
       </div>
 
-      <div class="time-box" id="hoursBox">
-        <div class="number" id="hours">00</div>
-        <div class="label">Hours</div>
+      <div class="time-box">
+        <div class="time-number" id="hoursBox">00</div>
+        <div class="time-label">Hours</div>
       </div>
 
-      <div class="time-box" id="minutesBox">
-        <div class="number" id="minutes">00</div>
-        <div class="label">Minutes</div>
+      <div class="time-box">
+        <div class="time-number" id="minutesBox">00</div>
+        <div class="time-label">Minutes</div>
       </div>
 
-      <div class="time-box" id="secondsBox">
-        <div class="number" id="seconds">00</div>
-        <div class="label">Seconds</div>
+      <div class="time-box">
+        <div class="time-number" id="secondsBox">00</div>
+        <div class="time-label">Seconds</div>
       </div>
 
     </div>
 
-    <!-- X -->
-
     <a
+      class="x-button"
       href="https://x.com/RedChatBusiness"
       target="_blank"
       rel="noopener noreferrer"
-      class="x-button"
-      aria-label="RedChatBusiness on X"
     >
-
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path d="M18.244 2.25h3.308l-7.227 8.26L22.827 21.75h-6.587l-5.157-6.746-5.902 6.746H1.87l7.73-8.835L1.173 2.25H7.93l4.66 6.163L18.244 2.25Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
-      </svg>
-
+      RedChatBusiness on X
     </a>
 
-    <!-- ADVERTISEMENT -->
+    <section class="ads">
 
-    <div class="ad-label">
-      ADVERTISEMENT
-    </div>
+      <!-- RedChat Ads -->
+      <div class="ad-label">ADVERTISEMENT</div>
 
-    <section class="banner">
+      <div class="ad-banner">
 
-      <div class="ad-logo-wrap">
+        <div class="ad-logo-wrap">
+          <img
+            class="ad-logo"
+            src="https://imgur.com/TpOnLEJ.png"
+            alt="RedChat Ads"
+          >
+        </div>
 
-        <img
-          class="ad-logo"
-          src="https://imgur.com/TpOnLEJ.png"
-          alt="RedChat Ads"
-        >
+        <div class="ad-content">
+          <h3 class="ad-title">
+            Yeni dönem 1 Ekim'de! 🚀
+          </h3>
+
+          <p class="ad-text">
+            RedChat yeni dönem için hazırlanıyor.
+            Daha fazlası çok yakında.
+          </p>
+
+          <button
+            class="ad-button"
+            id="moreInfoButton"
+          >
+            Daha Fazla Bilgi
+          </button>
+        </div>
 
       </div>
 
-      <div class="banner-left">
-
-        <div class="banner-title">
-          Yeni dönem 1 Ekim'de! 🚀
-        </div>
-
-        <div class="banner-text">
-          RedChat yeni dönem için hazırlanıyor.
-          Daha fazlası çok yakında.
-        </div>
-
-      </div>
-
-      <button
-        class="info-button"
-        onclick="openPopup()"
+      <!-- ChatixAI Sponsored Advertisement -->
+      <a
+        class="sponsored-ad"
+        href="https://x.com/ChatixAI"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="ChatixAI reklamı"
       >
-        Daha Fazla Bilgi
-      </button>
+
+        <div class="chatix-banner">
+          <img
+            src="https://imgur.com/g7o6ZwY.png"
+            alt="ChatixAI reklamı"
+          >
+        </div>
+
+        <div class="sponsored-label">
+          SPONSORED
+        </div>
+
+      </a>
 
     </section>
 
-    <div class="footer">
+    <footer>
       © 2026 RedChat
-    </div>
+    </footer>
 
   </main>
 
-
-  <!-- POPUP -->
-
+  <!-- RedChat Bilgi Popup -->
   <div
     class="popup-overlay"
     id="popupOverlay"
-    onclick="closePopupOutside(event)"
   >
 
     <div class="popup">
 
-      <h2>
-        RedChat Yeni Dönem
-      </h2>
+      <h2>RedChat Yeni Dönem</h2>
 
       <p>
         RedChat şu anda geçici olarak kullanılamıyor.
@@ -576,8 +519,8 @@
       </p>
 
       <button
-        class="close-button"
-        onclick="closePopup()"
+        class="popup-close"
+        id="popupClose"
       >
         Kapat
       </button>
@@ -586,209 +529,115 @@
 
   </div>
 
-
-  <!-- OVERLOAD SCREEN -->
-
+  <!-- Overload ekranı -->
   <div id="overloadScreen">
-
     <div id="overloadText">
       Our servers are currently overloaded.
     </div>
-
   </div>
 
-
   <script>
-
     /* =========================
-       COUNTDOWN
-    ========================= */
+       GERİ SAYIM
+       ========================= */
 
-    const targetDate =
-      new Date(
-        "2026-10-01T00:00:00+03:00"
-      ).getTime();
+    const targetDate = new Date(
+      "2026-10-01T00:00:00+03:00"
+    ).getTime();
 
-    const elements = {
-      days: document.getElementById("days"),
-      hours: document.getElementById("hours"),
-      minutes: document.getElementById("minutes"),
-      seconds: document.getElementById("seconds")
-    };
-
-    const boxes = {
-      days: document.getElementById("daysBox"),
-      hours: document.getElementById("hoursBox"),
-      minutes: document.getElementById("minutesBox"),
-      seconds: document.getElementById("secondsBox")
-    };
-
-    const previousValues = {
-      days: null,
-      hours: null,
-      minutes: null,
-      seconds: null
-    };
-
-    function pad(number) {
-      return String(number).padStart(2, "0");
-    }
+    const daysBox = document.getElementById("daysBox");
+    const hoursBox = document.getElementById("hoursBox");
+    const minutesBox = document.getElementById("minutesBox");
+    const secondsBox = document.getElementById("secondsBox");
 
     function updateCountdown() {
 
       const now = Date.now();
-
-      let difference =
-        targetDate - now;
+      let difference = targetDate - now;
 
       if (difference <= 0) {
-
-        elements.days.textContent = "00";
-        elements.hours.textContent = "00";
-        elements.minutes.textContent = "00";
-        elements.seconds.textContent = "00";
-
-        return;
+        difference = 0;
       }
 
-      const days =
-        Math.floor(
-          difference /
-          (1000 * 60 * 60 * 24)
-        );
+      const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      );
 
-      difference %=
-        1000 * 60 * 60 * 24;
+      const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      );
 
-      const hours =
-        Math.floor(
-          difference /
-          (1000 * 60 * 60)
-        );
+      const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+      );
 
-      difference %=
-        1000 * 60 * 60;
+      const seconds = Math.floor(
+        (difference / 1000) % 60
+      );
 
-      const minutes =
-        Math.floor(
-          difference /
-          (1000 * 60)
-        );
+      updateNumber(daysBox, days);
+      updateNumber(hoursBox, hours);
+      updateNumber(minutesBox, minutes);
+      updateNumber(secondsBox, seconds);
+    }
 
-      const seconds =
-        Math.floor(
-          (difference %
-          (1000 * 60)) /
-          1000
-        );
+    function updateNumber(element, value) {
 
-      const values = {
-        days: pad(days),
-        hours: pad(hours),
-        minutes: pad(minutes),
-        seconds: pad(seconds)
-      };
+      const formatted = String(value).padStart(2, "0");
 
-      Object.keys(values).forEach(key => {
+      if (element.textContent !== formatted) {
 
-        if (
-          previousValues[key] !== null &&
-          previousValues[key] !== values[key]
-        ) {
+        element.classList.add("flip");
 
-          boxes[key]
-            .classList
-            .remove("flip-animation");
-
-          void boxes[key].offsetWidth;
-
-          boxes[key]
-            .classList
-            .add("flip-animation");
-
-        }
-
-        elements[key].textContent =
-          values[key];
-
-        previousValues[key] =
-          values[key];
-
-      });
-
+        setTimeout(() => {
+          element.textContent = formatted;
+          element.classList.remove("flip");
+        }, 90);
+      }
     }
 
     updateCountdown();
 
-    setInterval(
-      updateCountdown,
-      1000
-    );
+    setInterval(updateCountdown, 1000);
 
 
     /* =========================
-       POPUP
-    ========================= */
+       REDCHAT POPUP
+       ========================= */
 
-    function openPopup() {
+    const popupOverlay =
+      document.getElementById("popupOverlay");
 
-      document
-        .getElementById("popupOverlay")
-        .classList
-        .add("active");
+    const moreInfoButton =
+      document.getElementById("moreInfoButton");
 
-    }
+    const popupClose =
+      document.getElementById("popupClose");
 
-    function closePopup() {
+    moreInfoButton.addEventListener("click", function () {
+      popupOverlay.classList.add("active");
+    });
 
-      document
-        .getElementById("popupOverlay")
-        .classList
-        .remove("active");
+    popupClose.addEventListener("click", function () {
+      popupOverlay.classList.remove("active");
+    });
 
-    }
+    popupOverlay.addEventListener("click", function (event) {
 
-    function closePopupOutside(event) {
-
-      if (
-        event.target.id ===
-        "popupOverlay"
-      ) {
-
-        closePopup();
-
+      if (event.target === popupOverlay) {
+        popupOverlay.classList.remove("active");
       }
 
-    }
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if (event.key === "Escape") {
-          closePopup();
-        }
-
-      }
-    );
+    });
 
 
     /* =========================
-       OVERLOAD SCREEN
-       
-       10 seconds after opening:
-       Show screen.
-
-       After 5 seconds:
-       Return to page.
-
-       Only once per tab.
-    ========================= */
+       OVERLOAD EKRANI
+       SADECE BİR KEZ / SEKME
+       ========================= */
 
     const overloadScreen =
-      document.getElementById(
-        "overloadScreen"
-      );
+      document.getElementById("overloadScreen");
 
     const overloadAlreadyShown =
       sessionStorage.getItem(
@@ -799,9 +648,7 @@
 
       setTimeout(() => {
 
-        overloadScreen
-          .classList
-          .add("active");
+        overloadScreen.classList.add("active");
 
         sessionStorage.setItem(
           "redchat_overload_shown",
@@ -810,16 +657,13 @@
 
         setTimeout(() => {
 
-          overloadScreen
-            .classList
-            .remove("active");
+          overloadScreen.classList.remove("active");
 
         }, 5000);
 
       }, 10000);
 
     }
-
   </script>
 
 </body>
