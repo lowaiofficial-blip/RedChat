@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>RedChat</title>
 
   <link
@@ -38,6 +39,8 @@
       text-align: center;
     }
 
+    /* REDCHAT LOGO */
+
     .logo {
       width: 62px;
       height: 62px;
@@ -47,7 +50,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: #fff;
       font-size: 36px;
       font-weight: 700;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
@@ -66,6 +69,8 @@
       font-size: 16px;
       color: #5f6368;
     }
+
+    /* COUNTDOWN */
 
     .countdown {
       display: flex;
@@ -104,12 +109,15 @@
       letter-spacing: .5px;
     }
 
+    /* X BUTTON */
+
     .x-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 9px;
       margin-top: 34px;
-      padding: 11px 19px;
+      padding: 10px 17px;
       border-radius: 9px;
       border: 1px solid #dadce0;
       background: #fff;
@@ -124,6 +132,15 @@
       border-color: #c8c8c8;
     }
 
+    .x-icon {
+      width: 17px;
+      height: 17px;
+      display: block;
+      fill: #202124;
+    }
+
+    /* ADS */
+
     .ads {
       margin-top: 48px;
       text-align: left;
@@ -137,6 +154,8 @@
       text-align: center;
       font-weight: 600;
     }
+
+    /* REDCHAT ADS */
 
     .ad-banner {
       width: 100%;
@@ -200,49 +219,63 @@
       cursor: pointer;
     }
 
-    /* ChatixAI reklamı */
+    /* CHATIXAI */
 
     .sponsored-ad {
-      margin-top: 18px;
       display: block;
+      width: 100%;
+      margin-top: 20px;
       text-decoration: none;
-      color: inherit;
+    }
+
+    .chatix-label {
+      margin-bottom: 8px;
+      font-size: 9px;
+      color: #9aa0a6;
+      text-align: center;
+      letter-spacing: .8px;
+      font-weight: 600;
     }
 
     .chatix-banner {
       width: 100%;
-      min-height: 150px;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 10px;
       border: 1px solid #e4e4e4;
-      border-radius: 14px;
+      border-radius: 12px;
       background: #fff;
-      overflow: hidden;
       box-shadow: 0 2px 9px rgba(0, 0, 0, 0.035);
-      transition: transform .18s ease, box-shadow .18s ease;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: transform .18s ease, box-shadow .18s ease;
     }
 
     .chatix-banner:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.07);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 13px rgba(0, 0, 0, 0.06);
     }
 
     .chatix-banner img {
-      width: 100%;
-      height: auto;
-      max-height: 260px;
       display: block;
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      max-height: 145px;
       object-fit: contain;
+      border-radius: 7px;
     }
 
     .sponsored-label {
-      margin-top: 7px;
+      margin-top: 6px;
       font-size: 9px;
       color: #9aa0a6;
       text-align: right;
       letter-spacing: .4px;
     }
+
+    /* POPUP */
 
     .popup-overlay {
       position: fixed;
@@ -303,7 +336,7 @@
       font-size: 12px;
     }
 
-    /* Overload ekranı */
+    /* OVERLOAD */
 
     #overloadScreen {
       position: fixed;
@@ -336,7 +369,10 @@
       padding: 20px;
     }
 
+    /* MOBILE */
+
     @media (max-width: 500px) {
+
       .page {
         padding: 52px 16px 35px;
       }
@@ -386,7 +422,12 @@
       }
 
       .chatix-banner {
-        min-height: 100px;
+        max-width: 100%;
+        padding: 7px;
+      }
+
+      .chatix-banner img {
+        max-height: 105px;
       }
     }
   </style>
@@ -403,6 +444,8 @@
     <p class="subtitle">
       RedChat is currently unavailable.
     </p>
+
+    <!-- COUNTDOWN -->
 
     <div class="countdown">
 
@@ -428,19 +471,34 @@
 
     </div>
 
+    <!-- REDCHAT BUSINESS X -->
+
     <a
       class="x-button"
       href="https://x.com/RedChatBusiness"
       target="_blank"
       rel="noopener noreferrer"
     >
-      RedChatBusiness on X
+      <svg
+        class="x-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817-5.963 6.817H1.684l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+      </svg>
+
+      RedChatBusiness
     </a>
+
+    <!-- ADVERTISEMENTS -->
 
     <section class="ads">
 
-      <!-- RedChat Ads -->
-      <div class="ad-label">ADVERTISEMENT</div>
+      <!-- REDCHAT ADS -->
+
+      <div class="ad-label">
+        ADVERTISEMENT
+      </div>
 
       <div class="ad-banner">
 
@@ -453,6 +511,7 @@
         </div>
 
         <div class="ad-content">
+
           <h3 class="ad-title">
             Yeni dönem 1 Ekim'de! 🚀
           </h3>
@@ -468,11 +527,13 @@
           >
             Daha Fazla Bilgi
           </button>
+
         </div>
 
       </div>
 
-      <!-- ChatixAI Sponsored Advertisement -->
+      <!-- CHATIXAI SPONSORED AD -->
+
       <a
         class="sponsored-ad"
         href="https://x.com/ChatixAI"
@@ -481,11 +542,17 @@
         aria-label="ChatixAI reklamı"
       >
 
+        <div class="chatix-label">
+          ADVERTISEMENT
+        </div>
+
         <div class="chatix-banner">
+
           <img
             src="https://imgur.com/g7o6ZwY.png"
-            alt="ChatixAI reklamı"
+            alt="ChatixAI"
           >
+
         </div>
 
         <div class="sponsored-label">
@@ -502,7 +569,8 @@
 
   </main>
 
-  <!-- RedChat Bilgi Popup -->
+  <!-- REDCHAT POPUP -->
+
   <div
     class="popup-overlay"
     id="popupOverlay"
@@ -510,7 +578,9 @@
 
     <div class="popup">
 
-      <h2>RedChat Yeni Dönem</h2>
+      <h2>
+        RedChat Yeni Dönem
+      </h2>
 
       <p>
         RedChat şu anda geçici olarak kullanılamıyor.
@@ -529,51 +599,72 @@
 
   </div>
 
-  <!-- Overload ekranı -->
+  <!-- OVERLOAD SCREEN -->
+
   <div id="overloadScreen">
+
     <div id="overloadText">
       Our servers are currently overloaded.
     </div>
+
   </div>
 
   <script>
+
     /* =========================
-       GERİ SAYIM
+       COUNTDOWN
        ========================= */
 
-    const targetDate = new Date(
-      "2026-10-01T00:00:00+03:00"
-    ).getTime();
+    const targetDate =
+      new Date("2026-10-01T00:00:00+03:00").getTime();
 
-    const daysBox = document.getElementById("daysBox");
-    const hoursBox = document.getElementById("hoursBox");
-    const minutesBox = document.getElementById("minutesBox");
-    const secondsBox = document.getElementById("secondsBox");
+    const daysBox =
+      document.getElementById("daysBox");
+
+    const hoursBox =
+      document.getElementById("hoursBox");
+
+    const minutesBox =
+      document.getElementById("minutesBox");
+
+    const secondsBox =
+      document.getElementById("secondsBox");
+
 
     function updateCountdown() {
 
       const now = Date.now();
-      let difference = targetDate - now;
+
+      let difference =
+        targetDate - now;
 
       if (difference <= 0) {
         difference = 0;
       }
 
-      const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      );
+      const days =
+        Math.floor(
+          difference /
+          (1000 * 60 * 60 * 24)
+        );
 
-      const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-      );
+      const hours =
+        Math.floor(
+          (difference /
+          (1000 * 60 * 60)) % 24
+        );
 
-      const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-      );
+      const minutes =
+        Math.floor(
+          (difference /
+          (1000 * 60)) % 60
+        );
 
-      const seconds = Math.floor(
-        (difference / 1000) % 60
-      );
+      const seconds =
+        Math.floor(
+          (difference /
+          1000) % 60
+        );
 
       updateNumber(daysBox, days);
       updateNumber(hoursBox, hours);
@@ -581,28 +672,37 @@
       updateNumber(secondsBox, seconds);
     }
 
+
     function updateNumber(element, value) {
 
-      const formatted = String(value).padStart(2, "0");
+      const formatted =
+        String(value).padStart(2, "0");
 
       if (element.textContent !== formatted) {
 
         element.classList.add("flip");
 
         setTimeout(() => {
+
           element.textContent = formatted;
+
           element.classList.remove("flip");
+
         }, 90);
       }
     }
 
+
     updateCountdown();
 
-    setInterval(updateCountdown, 1000);
+    setInterval(
+      updateCountdown,
+      1000
+    );
 
 
     /* =========================
-       REDCHAT POPUP
+       POPUP
        ========================= */
 
     const popupOverlay =
@@ -614,56 +714,91 @@
     const popupClose =
       document.getElementById("popupClose");
 
-    moreInfoButton.addEventListener("click", function () {
-      popupOverlay.classList.add("active");
-    });
 
-    popupClose.addEventListener("click", function () {
-      popupOverlay.classList.remove("active");
-    });
+    moreInfoButton.addEventListener(
+      "click",
+      function () {
 
-    popupOverlay.addEventListener("click", function (event) {
+        popupOverlay.classList.add(
+          "active"
+        );
 
-      if (event.target === popupOverlay) {
-        popupOverlay.classList.remove("active");
       }
+    );
 
-    });
+
+    popupClose.addEventListener(
+      "click",
+      function () {
+
+        popupOverlay.classList.remove(
+          "active"
+        );
+
+      }
+    );
+
+
+    popupOverlay.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          event.target === popupOverlay
+        ) {
+
+          popupOverlay.classList.remove(
+            "active"
+          );
+
+        }
+
+      }
+    );
 
 
     /* =========================
-       OVERLOAD EKRANI
+       OVERLOAD SCREEN
        SADECE BİR KEZ / SEKME
        ========================= */
 
     const overloadScreen =
-      document.getElementById("overloadScreen");
+      document.getElementById(
+        "overloadScreen"
+      );
 
     const overloadAlreadyShown =
       sessionStorage.getItem(
         "redchat_overload_shown"
       );
 
+
     if (!overloadAlreadyShown) {
 
       setTimeout(() => {
 
-        overloadScreen.classList.add("active");
+        overloadScreen.classList.add(
+          "active"
+        );
 
         sessionStorage.setItem(
           "redchat_overload_shown",
           "true"
         );
 
+
         setTimeout(() => {
 
-          overloadScreen.classList.remove("active");
+          overloadScreen.classList.remove(
+            "active"
+          );
 
         }, 5000);
 
       }, 10000);
 
     }
+
   </script>
 
 </body>
