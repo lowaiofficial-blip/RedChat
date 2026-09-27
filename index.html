@@ -59,31 +59,40 @@
       position: relative;
     }
 
-    /* Hafif ışık yansımaları */
+    /* Hafif üst ışık */
     body::before {
       content: "";
+
       position: fixed;
+
       width: 55vw;
       height: 30vh;
+
       top: -15vh;
       left: 22vw;
 
       background: rgba(255,255,255,.55);
+
       filter: blur(55px);
 
       pointer-events: none;
       z-index: 0;
     }
 
+    /* Hafif alt ışık */
     body::after {
       content: "";
+
       position: fixed;
+
       width: 45vw;
       height: 25vh;
+
       right: -15vw;
       bottom: -10vh;
 
       background: rgba(255,255,255,.35);
+
       filter: blur(60px);
 
       pointer-events: none;
@@ -95,6 +104,7 @@
       z-index: 1;
 
       width: min(760px, calc(100% - 32px));
+
       margin: 0 auto;
 
       min-height: 100vh;
@@ -109,7 +119,9 @@
         max(28px, env(safe-area-inset-bottom));
     }
 
-    /* LOGO */
+    /* =========================
+       LOGO
+    ========================= */
 
     .logo {
       width: 78px;
@@ -146,16 +158,19 @@
       content: "";
 
       position: absolute;
+
       top: 0;
       left: 0;
+
       width: 100%;
       height: 45%;
 
-      background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,.32),
-        transparent
-      );
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,255,255,.32),
+          transparent
+        );
 
       pointer-events: none;
     }
@@ -165,7 +180,9 @@
 
       font-size: clamp(28px, 5vw, 40px);
       line-height: 1.1;
+
       font-weight: 700;
+
       letter-spacing: -.035em;
 
       text-align: center;
@@ -177,10 +194,13 @@
       color: var(--secondary);
 
       font-size: 16px;
+
       text-align: center;
     }
 
-    /* GLASS */
+    /* =========================
+       LIQUID GLASS
+    ========================= */
 
     .glass {
       width: 100%;
@@ -203,20 +223,25 @@
 
       /*
         iPad optimizasyonu:
-        Blur azaltıldı.
-        WebKit fallback'i de korunuyor.
+        Önceki 28px blur yerine daha hafif blur.
       */
-      -webkit-backdrop-filter: blur(14px) saturate(125%);
-      backdrop-filter: blur(14px) saturate(125%);
+      -webkit-backdrop-filter:
+        blur(14px) saturate(125%);
+
+      backdrop-filter:
+        blur(14px) saturate(125%);
 
       position: relative;
+
       overflow: hidden;
     }
 
+    /* Üst ışık çizgisi */
     .glass::before {
       content: "";
 
       position: absolute;
+
       left: 12%;
       right: 12%;
       top: 0;
@@ -228,6 +253,7 @@
       pointer-events: none;
     }
 
+    /* Hafif çapraz yansıma */
     .glass::after {
       content: "";
 
@@ -246,11 +272,16 @@
       pointer-events: none;
     }
 
-    /* COUNTDOWN */
+    /* =========================
+       COUNTDOWN
+    ========================= */
 
     .countdown {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
       gap: 10px;
 
       padding: 14px;
@@ -268,6 +299,7 @@
       border-radius: 17px;
 
       background: rgba(255,255,255,.34);
+
       border: 1px solid rgba(255,255,255,.58);
 
       box-shadow:
@@ -275,13 +307,16 @@
         0 4px 14px rgba(40,45,55,.04);
 
       position: relative;
+
       overflow: hidden;
     }
 
     .time-number {
       display: block;
 
-      font-size: clamp(24px, 5vw, 32px);
+      font-size:
+        clamp(24px, 5vw, 32px);
+
       font-weight: 700;
 
       letter-spacing: -.04em;
@@ -295,53 +330,139 @@
       color: var(--secondary);
 
       font-size: 11px;
+
       font-weight: 600;
+
       letter-spacing: .04em;
+
       text-transform: uppercase;
     }
 
-    /* X BUTTON */
+    /* =========================
+       X LIQUID GLASS BUTTON
+    ========================= */
 
     .x-button {
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
 
-      min-height: 48px;
+      gap: 10px;
 
-      padding: 0 23px;
+      min-height: 50px;
 
-      border-radius: 16px;
+      padding: 0 22px;
+
+      border-radius: 18px;
 
       color: #17181a;
+
       text-decoration: none;
 
       font-size: 15px;
+
       font-weight: 600;
 
-      background: rgba(255,255,255,.48);
-      border: 1px solid rgba(255,255,255,.7);
+      letter-spacing: -.01em;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.58),
+          rgba(255,255,255,.27)
+        );
+
+      border: 1px solid rgba(255,255,255,.78);
 
       box-shadow:
-        0 8px 22px rgba(40,45,55,.07),
-        inset 0 1px 0 rgba(255,255,255,.85);
+        0 10px 28px rgba(40,45,55,.08),
+        inset 0 1px 0 rgba(255,255,255,.95),
+        inset 0 -1px 0 rgba(255,255,255,.25);
 
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter:
+        blur(12px) saturate(125%);
+
+      backdrop-filter:
+        blur(12px) saturate(125%);
+
+      position: relative;
+
+      overflow: hidden;
+
+      isolation: isolate;
 
       transition:
         transform .18s ease,
-        background .18s ease;
+        background .18s ease,
+        box-shadow .18s ease;
+    }
+
+    /* X butonunun üst ışığı */
+    .x-button::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+
+      left: 12%;
+      right: 12%;
+
+      height: 1px;
+
+      background: rgba(255,255,255,.95);
+
+      pointer-events: none;
+    }
+
+    /* X butonunun cam yansıması */
+    .x-button::after {
+      content: "";
+
+      position: absolute;
+
+      width: 70%;
+      height: 70%;
+
+      top: -45%;
+      left: -12%;
+
+      background: rgba(255,255,255,.18);
+
+      transform: rotate(-12deg);
+
+      pointer-events: none;
     }
 
     .x-button:active {
-      transform: scale(.97);
+      transform: scale(.96);
+
+      box-shadow:
+        0 5px 16px rgba(40,45,55,.06),
+        inset 0 1px 0 rgba(255,255,255,.8);
     }
 
-    /* ADS */
+    .x-icon {
+      width: 18px;
+      height: 18px;
+
+      fill: currentColor;
+
+      flex-shrink: 0;
+
+      position: relative;
+
+      z-index: 1;
+    }
+
+    /* =========================
+       ADS
+    ========================= */
 
     .ad-section {
       width: 100%;
+
       margin-top: 34px;
     }
 
@@ -351,7 +472,9 @@
       color: #8a8e94;
 
       font-size: 10px;
+
       font-weight: 700;
+
       letter-spacing: .13em;
 
       text-align: center;
@@ -363,6 +486,7 @@
       min-height: 110px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -383,10 +507,14 @@
         0 12px 32px rgba(40,45,55,.07),
         inset 0 1px 0 rgba(255,255,255,.85);
 
-      -webkit-backdrop-filter: blur(13px) saturate(120%);
-      backdrop-filter: blur(13px) saturate(120%);
+      -webkit-backdrop-filter:
+        blur(13px) saturate(120%);
+
+      backdrop-filter:
+        blur(13px) saturate(120%);
 
       position: relative;
+
       overflow: hidden;
     }
 
@@ -401,14 +529,19 @@
       object-fit: contain;
     }
 
-    /* CHATIX */
+    /* =========================
+       CHATIXAI
+    ========================= */
 
     .sponsored-ad {
       width: 100%;
+
       margin-top: 18px;
 
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
     }
 
@@ -418,12 +551,15 @@
       color: #8a8e94;
 
       font-size: 10px;
+
       font-weight: 700;
+
       letter-spacing: .12em;
     }
 
     .chatix-banner-link {
       display: block;
+
       width: 100%;
 
       text-decoration: none;
@@ -435,6 +571,7 @@
       min-height: 100px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -455,8 +592,11 @@
         0 12px 32px rgba(40,45,55,.07),
         inset 0 1px 0 rgba(255,255,255,.85);
 
-      -webkit-backdrop-filter: blur(13px) saturate(120%);
-      backdrop-filter: blur(13px) saturate(120%);
+      -webkit-backdrop-filter:
+        blur(13px) saturate(120%);
+
+      backdrop-filter:
+        blur(13px) saturate(120%);
 
       overflow: hidden;
     }
@@ -465,6 +605,7 @@
       display: block;
 
       width: 100%;
+
       max-height: 110px;
 
       object-fit: contain;
@@ -478,6 +619,7 @@
       color: var(--secondary);
 
       font-size: 14px;
+
       text-align: center;
     }
 
@@ -487,6 +629,7 @@
       min-height: 44px;
 
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
 
@@ -495,12 +638,15 @@
       border-radius: 14px;
 
       color: #17181a;
+
       text-decoration: none;
 
       font-size: 14px;
+
       font-weight: 600;
 
       background: rgba(255,255,255,.5);
+
       border: 1px solid rgba(255,255,255,.72);
 
       box-shadow:
@@ -508,6 +654,7 @@
         inset 0 1px 0 rgba(255,255,255,.8);
 
       -webkit-backdrop-filter: blur(10px);
+
       backdrop-filter: blur(10px);
     }
 
@@ -517,29 +664,39 @@
       color: #a0a3a8;
 
       font-size: 9px;
+
       font-weight: 700;
+
       letter-spacing: .12em;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       margin-top: auto;
+
       padding-top: 42px;
 
       color: #9a9da2;
 
       font-size: 12px;
+
       text-align: center;
     }
 
-    /* POPUP */
+    /* =========================
+       POPUP
+    ========================= */
 
     .popup-overlay {
       position: fixed;
+
       inset: 0;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -548,10 +705,13 @@
       background: rgba(255,255,255,.28);
 
       -webkit-backdrop-filter: blur(10px);
+
       backdrop-filter: blur(10px);
 
       opacity: 0;
+
       visibility: hidden;
+
       pointer-events: none;
 
       z-index: 5000;
@@ -563,7 +723,9 @@
 
     .popup-overlay.active {
       opacity: 1;
+
       visibility: visible;
+
       pointer-events: auto;
     }
 
@@ -587,11 +749,16 @@
         0 24px 60px rgba(30,35,45,.14),
         inset 0 1px 0 rgba(255,255,255,.95);
 
-      -webkit-backdrop-filter: blur(18px) saturate(125%);
-      backdrop-filter: blur(18px) saturate(125%);
+      -webkit-backdrop-filter:
+        blur(18px) saturate(125%);
+
+      backdrop-filter:
+        blur(18px) saturate(125%);
 
       transform: scale(.96);
-      transition: transform .2s ease;
+
+      transition:
+        transform .2s ease;
     }
 
     .popup-overlay.active .popup {
@@ -602,6 +769,7 @@
       margin: 0 0 10px;
 
       font-size: 21px;
+
       letter-spacing: -.02em;
     }
 
@@ -611,13 +779,17 @@
       color: var(--secondary);
 
       font-size: 15px;
+
       line-height: 1.55;
     }
 
-    /* OVERLOAD */
+    /* =========================
+       OVERLOAD SCREEN
+    ========================= */
 
     #overloadScreen {
       position: fixed;
+
       inset: 0;
 
       width: 100%;
@@ -626,21 +798,27 @@
       background: #fff;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
       opacity: 0;
+
       visibility: hidden;
+
       pointer-events: none;
 
       z-index: 9999;
 
-      transition: opacity .18s ease;
+      transition:
+        opacity .18s ease;
     }
 
     #overloadScreen.active {
       opacity: 1;
+
       visibility: visible;
+
       pointer-events: all;
     }
 
@@ -654,6 +832,7 @@
         sans-serif;
 
       font-size: 18px;
+
       font-weight: 400;
 
       text-align: center;
@@ -661,16 +840,27 @@
       padding: 20px;
     }
 
-    /* iPad / TABLET OPTIMIZATION */
+    /* =========================
+       TABLET / iPAD
+    ========================= */
 
     @media (min-width: 700px) {
+
       .page {
-        width: min(760px, calc(100% - 64px));
+        width:
+          min(760px, calc(100% - 64px));
       }
 
+      /*
+        Tabletlerde blur biraz daha düşük.
+        Görünüm korunurken GPU yükü azalır.
+      */
       .glass {
-        -webkit-backdrop-filter: blur(12px) saturate(120%);
-        backdrop-filter: blur(12px) saturate(120%);
+        -webkit-backdrop-filter:
+          blur(12px) saturate(120%);
+
+        backdrop-filter:
+          blur(12px) saturate(120%);
       }
 
       .ad-banner,
@@ -679,11 +869,15 @@
       }
     }
 
-    /* TELEFON */
+    /* =========================
+       TELEFON
+    ========================= */
 
     @media (max-width: 520px) {
+
       .page {
-        width: calc(100% - 24px);
+        width:
+          calc(100% - 24px);
 
         padding-top:
           max(38px, env(safe-area-inset-top));
@@ -708,11 +902,13 @@
 
       .countdown {
         gap: 7px;
+
         padding: 10px;
       }
 
       .time-box {
         padding: 14px 4px;
+
         border-radius: 15px;
       }
 
@@ -725,29 +921,39 @@
       }
     }
 
-    /* BLUR DESTEKLENMEZSE */
+    /* =========================
+       BLUR FALLBACK
+    ========================= */
 
     @supports not (
       (backdrop-filter: blur(1px)) or
       (-webkit-backdrop-filter: blur(1px))
     ) {
+
       .glass,
       .ad-banner,
       .chatix-banner,
       .popup,
       .x-button,
       .chatix-button {
-        background: rgba(255,255,255,.92);
+
+        background:
+          rgba(255,255,255,.92);
       }
     }
 
-    /* HAREKET AZALTMA */
+    /* =========================
+       REDUCED MOTION
+    ========================= */
 
     @media (prefers-reduced-motion: reduce) {
+
       *,
       *::before,
       *::after {
+
         animation-duration: .01ms !important;
+
         transition-duration: .01ms !important;
       }
     }
@@ -756,52 +962,127 @@
 
 <body>
 
+  <!-- OVERLOAD EKRANI -->
+
   <div id="overloadScreen">
     <div id="overloadText">
       Our servers are currently overloaded.
     </div>
   </div>
 
+
+  <!-- ANA SAYFA -->
+
   <main class="page">
 
-    <div class="logo">R</div>
+    <!-- LOGO -->
 
-    <h1>This Service Has Been Suspended</h1>
+    <div class="logo">
+      R
+    </div>
+
+
+    <!-- BAŞLIK -->
+
+    <h1>
+      This Service Has Been Suspended
+    </h1>
 
     <p class="subtitle">
       RedChat is currently unavailable.
     </p>
 
+
+    <!-- GERİ SAYIM -->
+
     <div class="glass countdown">
-      <div class="time-box">
-        <span class="time-number" id="days">00</span>
-        <span class="time-label">Gün</span>
-      </div>
 
       <div class="time-box">
-        <span class="time-number" id="hours">00</span>
-        <span class="time-label">Saat</span>
+        <span
+          class="time-number"
+          id="days"
+        >
+          00
+        </span>
+
+        <span class="time-label">
+          Gün
+        </span>
       </div>
 
-      <div class="time-box">
-        <span class="time-number" id="minutes">00</span>
-        <span class="time-label">Dakika</span>
-      </div>
 
       <div class="time-box">
-        <span class="time-number" id="seconds">00</span>
-        <span class="time-label">Saniye</span>
+        <span
+          class="time-number"
+          id="hours"
+        >
+          00
+        </span>
+
+        <span class="time-label">
+          Saat
+        </span>
       </div>
+
+
+      <div class="time-box">
+        <span
+          class="time-number"
+          id="minutes"
+        >
+          00
+        </span>
+
+        <span class="time-label">
+          Dakika
+        </span>
+      </div>
+
+
+      <div class="time-box">
+        <span
+          class="time-number"
+          id="seconds"
+        >
+          00
+        </span>
+
+        <span class="time-label">
+          Saniye
+        </span>
+      </div>
+
     </div>
+
+
+    <!-- X BUTONU -->
 
     <a
       class="x-button"
       href="https://x.com/RedChatBusiness"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="RedChatBusiness X profili"
     >
-      RedChatBusiness →
+
+      <svg
+        class="x-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817-5.964 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"
+        />
+      </svg>
+
+      <span>
+        RedChatBusiness
+      </span>
+
     </a>
+
+
+    <!-- REKLAMLAR -->
 
     <section class="ad-section">
 
@@ -809,18 +1090,27 @@
         ADVERTISEMENT
       </div>
 
+
+      <!-- REDCHAT ADS -->
+
       <div class="glass ad-banner">
+
         <img
           src="https://imgur.com/TpOnLEJ.png"
           alt="RedChat Ads"
         >
+
       </div>
+
+
+      <!-- CHATIXAI -->
 
       <div class="sponsored-ad">
 
         <div class="chatix-label">
           ADVERTISEMENT
         </div>
+
 
         <a
           class="chatix-banner-link"
@@ -829,17 +1119,23 @@
           rel="noopener noreferrer"
           aria-label="ChatixAI reklamı"
         >
+
           <div class="chatix-banner">
+
             <img
               src="https://imgur.com/g7o6ZwY.png"
               alt="ChatixAI"
             >
+
           </div>
+
         </a>
+
 
         <div class="chatix-description">
           Yapay zekâ destekli sohbet asistanını keşfet.
         </div>
+
 
         <a
           class="chatix-button"
@@ -850,6 +1146,7 @@
           ChatixAI'yi Keşfet →
         </a>
 
+
         <div class="sponsored-label">
           SPONSORED
         </div>
@@ -858,63 +1155,113 @@
 
     </section>
 
+
+    <!-- FOOTER -->
+
     <footer>
       © 2026 RedChat
     </footer>
 
   </main>
 
+
   <!-- POPUP -->
 
-  <div class="popup-overlay" id="popupOverlay">
+  <div
+    class="popup-overlay"
+    id="popupOverlay"
+  >
+
     <div class="popup">
-      <h2>RedChat Yeni Dönem</h2>
+
+      <h2>
+        RedChat Yeni Dönem
+      </h2>
 
       <p>
         RedChat şu anda geçici olarak kullanılamıyor.
         Yeni dönem 1 Ekim 2026 tarihinde başlayacak.
         Güncellemeler için RedChatBusiness hesabını takip edebilirsin.
       </p>
+
     </div>
+
   </div>
 
-  <script>
-    /* SABİT GERİ SAYIM */
-    const targetDate =
-      new Date("2026-10-01T00:00:00+03:00").getTime();
 
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
+  <script>
+
+    /* =========================
+       SABİT GERİ SAYIM
+    ========================= */
+
+    const targetDate =
+      new Date(
+        "2026-10-01T00:00:00+03:00"
+      ).getTime();
+
+
+    const daysEl =
+      document.getElementById("days");
+
+    const hoursEl =
+      document.getElementById("hours");
+
+    const minutesEl =
+      document.getElementById("minutes");
+
+    const secondsEl =
+      document.getElementById("seconds");
+
 
     function updateCountdown() {
-      const now = Date.now();
-      const distance = targetDate - now;
+
+      const now =
+        Date.now();
+
+      const distance =
+        targetDate - now;
+
 
       if (distance <= 0) {
+
         daysEl.textContent = "00";
         hoursEl.textContent = "00";
         minutesEl.textContent = "00";
         secondsEl.textContent = "00";
+
         return;
       }
 
-      const days = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
-      );
 
-      const hours = Math.floor(
-        (distance / (1000 * 60 * 60)) % 24
-      );
+      const days =
+        Math.floor(
+          distance /
+          (1000 * 60 * 60 * 24)
+        );
 
-      const minutes = Math.floor(
-        (distance / (1000 * 60)) % 60
-      );
 
-      const seconds = Math.floor(
-        (distance / 1000) % 60
-      );
+      const hours =
+        Math.floor(
+          (distance /
+            (1000 * 60 * 60)) %
+          24
+        );
+
+
+      const minutes =
+        Math.floor(
+          (distance /
+            (1000 * 60)) %
+          60
+        );
+
+
+      const seconds =
+        Math.floor(
+          (distance / 1000) % 60
+        );
+
 
       daysEl.textContent =
         String(days).padStart(2, "0");
@@ -929,53 +1276,60 @@
         String(seconds).padStart(2, "0");
     }
 
+
     updateCountdown();
 
-    setInterval(updateCountdown, 1000);
+    setInterval(
+      updateCountdown,
+      1000
+    );
 
 
-    /* POPUP */
-
-    const popupOverlay =
-      document.getElementById("popupOverlay");
-
-    /*
-      Popup davranışı burada hazır.
-      İstersen herhangi bir butondan:
-      popupOverlay.classList.add("active");
-      ile açılabilir.
-    */
-
-
-    /* 10 SANİYE SONRA OVERLOAD EKRANI */
+    /* =========================
+       OVERLOAD PRANK
+       10 SN SONRA
+       5 SN GÖRÜNÜR
+       SADECE 1 KEZ
+    ========================= */
 
     const overloadScreen =
-      document.getElementById("overloadScreen");
+      document.getElementById(
+        "overloadScreen"
+      );
+
 
     const overloadAlreadyShown =
       sessionStorage.getItem(
         "redchat_overload_shown"
       );
 
+
     if (!overloadAlreadyShown) {
 
       setTimeout(() => {
 
-        overloadScreen.classList.add("active");
+        overloadScreen.classList.add(
+          "active"
+        );
+
 
         sessionStorage.setItem(
           "redchat_overload_shown",
           "true"
         );
 
+
         setTimeout(() => {
 
-          overloadScreen.classList.remove("active");
+          overloadScreen.classList.remove(
+            "active"
+          );
 
         }, 5000);
 
       }, 10000);
     }
+
   </script>
 
 </body>
