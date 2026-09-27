@@ -225,7 +225,7 @@
       display: block;
       width: 100%;
       margin-top: 20px;
-      text-decoration: none;
+      text-align: center;
     }
 
     .chatix-label {
@@ -237,11 +237,17 @@
       font-weight: 600;
     }
 
+    .chatix-banner-link {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+    }
+
     .chatix-banner {
       width: 100%;
       max-width: 520px;
       margin: 0 auto;
-      padding: 10px;
+      padding: 8px;
       border: 1px solid #e4e4e4;
       border-radius: 12px;
       background: #fff;
@@ -262,9 +268,37 @@
       width: 100%;
       max-width: 500px;
       height: auto;
-      max-height: 145px;
+      max-height: 130px;
       object-fit: contain;
       border-radius: 7px;
+    }
+
+    .chatix-description {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 13px;
+      color: #5f6368;
+      line-height: 1.4;
+    }
+
+    .chatix-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 11px auto 0;
+      padding: 9px 16px;
+      border-radius: 8px;
+      background: #202124;
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      transition: .2s ease;
+    }
+
+    .chatix-button:hover {
+      background: #000;
+      transform: translateY(-1px);
     }
 
     .sponsored-label {
@@ -336,7 +370,7 @@
       font-size: 12px;
     }
 
-    /* OVERLOAD */
+    /* OVERLOAD SCREEN */
 
     #overloadScreen {
       position: fixed;
@@ -423,11 +457,20 @@
 
       .chatix-banner {
         max-width: 100%;
-        padding: 7px;
+        padding: 6px;
       }
 
       .chatix-banner img {
-        max-height: 105px;
+        max-height: 100px;
+      }
+
+      .chatix-description {
+        font-size: 12px;
+      }
+
+      .chatix-button {
+        padding: 8px 14px;
+        font-size: 12px;
       }
     }
   </style>
@@ -437,9 +480,13 @@
 
   <main class="page">
 
+    <!-- REDCHAT -->
+
     <div class="logo">R</div>
 
-    <h1>This Service Has Been Suspended</h1>
+    <h1>
+      This Service Has Been Suspended
+    </h1>
 
     <p class="subtitle">
       RedChat is currently unavailable.
@@ -471,7 +518,7 @@
 
     </div>
 
-    <!-- REDCHAT BUSINESS X -->
+    <!-- X -->
 
     <a
       class="x-button"
@@ -479,6 +526,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
+
       <svg
         class="x-icon"
         viewBox="0 0 24 24"
@@ -490,7 +538,7 @@
       RedChatBusiness
     </a>
 
-    <!-- ADVERTISEMENTS -->
+    <!-- ADS -->
 
     <section class="ads">
 
@@ -503,11 +551,13 @@
       <div class="ad-banner">
 
         <div class="ad-logo-wrap">
+
           <img
             class="ad-logo"
             src="https://imgur.com/TpOnLEJ.png"
             alt="RedChat Ads"
           >
+
         </div>
 
         <div class="ad-content">
@@ -532,34 +582,51 @@
 
       </div>
 
-      <!-- CHATIXAI SPONSORED AD -->
+      <!-- CHATIXAI REKLAMI -->
 
-      <a
-        class="sponsored-ad"
-        href="https://x.com/ChatixAI"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="ChatixAI reklamı"
-      >
+      <div class="sponsored-ad">
 
         <div class="chatix-label">
           ADVERTISEMENT
         </div>
 
-        <div class="chatix-banner">
+        <a
+          class="chatix-banner-link"
+          href="https://x.com/ChatixAI"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="ChatixAI reklamı"
+        >
 
-          <img
-            src="https://imgur.com/g7o6ZwY.png"
-            alt="ChatixAI"
-          >
+          <div class="chatix-banner">
 
+            <img
+              src="https://imgur.com/g7o6ZwY.png"
+              alt="ChatixAI"
+            >
+
+          </div>
+
+        </a>
+
+        <div class="chatix-description">
+          Yapay zekâ destekli sohbet asistanını keşfet.
         </div>
+
+        <a
+          class="chatix-button"
+          href="https://x.com/ChatixAI"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ChatixAI'yi Keşfet →
+        </a>
 
         <div class="sponsored-label">
           SPONSORED
         </div>
 
-      </a>
+      </div>
 
     </section>
 
@@ -569,7 +636,7 @@
 
   </main>
 
-  <!-- REDCHAT POPUP -->
+  <!-- POPUP -->
 
   <div
     class="popup-overlay"
@@ -599,7 +666,7 @@
 
   </div>
 
-  <!-- OVERLOAD SCREEN -->
+  <!-- OVERLOAD -->
 
   <div id="overloadScreen">
 
@@ -616,7 +683,9 @@
        ========================= */
 
     const targetDate =
-      new Date("2026-10-01T00:00:00+03:00").getTime();
+      new Date(
+        "2026-10-01T00:00:00+03:00"
+      ).getTime();
 
     const daysBox =
       document.getElementById("daysBox");
@@ -678,15 +747,20 @@
       const formatted =
         String(value).padStart(2, "0");
 
-      if (element.textContent !== formatted) {
+      if (
+        element.textContent !== formatted
+      ) {
 
         element.classList.add("flip");
 
         setTimeout(() => {
 
-          element.textContent = formatted;
+          element.textContent =
+            formatted;
 
-          element.classList.remove("flip");
+          element.classList.remove(
+            "flip"
+          );
 
         }, 90);
       }
@@ -702,17 +776,23 @@
 
 
     /* =========================
-       POPUP
+       REDCHAT POPUP
        ========================= */
 
     const popupOverlay =
-      document.getElementById("popupOverlay");
+      document.getElementById(
+        "popupOverlay"
+      );
 
     const moreInfoButton =
-      document.getElementById("moreInfoButton");
+      document.getElementById(
+        "moreInfoButton"
+      );
 
     const popupClose =
-      document.getElementById("popupClose");
+      document.getElementById(
+        "popupClose"
+      );
 
 
     moreInfoButton.addEventListener(
