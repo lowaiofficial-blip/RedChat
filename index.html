@@ -59,7 +59,6 @@
       position: relative;
     }
 
-    /* Hafif üst ışık */
     body::before {
       content: "";
 
@@ -79,7 +78,6 @@
       z-index: 0;
     }
 
-    /* Hafif alt ışık */
     body::after {
       content: "";
 
@@ -119,9 +117,7 @@
         max(28px, env(safe-area-inset-bottom));
     }
 
-    /* =========================
-       LOGO
-    ========================= */
+    /* LOGO */
 
     .logo {
       width: 78px;
@@ -198,9 +194,7 @@
       text-align: center;
     }
 
-    /* =========================
-       LIQUID GLASS
-    ========================= */
+    /* LIQUID GLASS */
 
     .glass {
       width: 100%;
@@ -221,10 +215,6 @@
         inset 0 1px 0 rgba(255,255,255,.85),
         inset 0 -1px 0 rgba(255,255,255,.22);
 
-      /*
-        iPad optimizasyonu:
-        Önceki 28px blur yerine daha hafif blur.
-      */
       -webkit-backdrop-filter:
         blur(14px) saturate(125%);
 
@@ -236,7 +226,6 @@
       overflow: hidden;
     }
 
-    /* Üst ışık çizgisi */
     .glass::before {
       content: "";
 
@@ -253,7 +242,6 @@
       pointer-events: none;
     }
 
-    /* Hafif çapraz yansıma */
     .glass::after {
       content: "";
 
@@ -272,9 +260,7 @@
       pointer-events: none;
     }
 
-    /* =========================
-       COUNTDOWN
-    ========================= */
+    /* COUNTDOWN */
 
     .countdown {
       display: grid;
@@ -338,9 +324,7 @@
       text-transform: uppercase;
     }
 
-    /* =========================
-       X LIQUID GLASS BUTTON
-    ========================= */
+    /* X LIQUID GLASS */
 
     .x-button {
       display: inline-flex;
@@ -398,7 +382,6 @@
         box-shadow .18s ease;
     }
 
-    /* X butonunun üst ışığı */
     .x-button::before {
       content: "";
 
@@ -416,7 +399,6 @@
       pointer-events: none;
     }
 
-    /* X butonunun cam yansıması */
     .x-button::after {
       content: "";
 
@@ -456,9 +438,7 @@
       z-index: 1;
     }
 
-    /* =========================
-       ADS
-    ========================= */
+    /* ADS */
 
     .ad-section {
       width: 100%;
@@ -529,9 +509,7 @@
       object-fit: contain;
     }
 
-    /* =========================
-       CHATIXAI
-    ========================= */
+    /* CHATIXAI */
 
     .sponsored-ad {
       width: 100%;
@@ -653,9 +631,11 @@
         0 7px 18px rgba(40,45,55,.06),
         inset 0 1px 0 rgba(255,255,255,.8);
 
-      -webkit-backdrop-filter: blur(10px);
+      -webkit-backdrop-filter:
+        blur(10px);
 
-      backdrop-filter: blur(10px);
+      backdrop-filter:
+        blur(10px);
     }
 
     .sponsored-label {
@@ -670,9 +650,7 @@
       letter-spacing: .12em;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer {
       margin-top: auto;
@@ -686,9 +664,7 @@
       text-align: center;
     }
 
-    /* =========================
-       POPUP
-    ========================= */
+    /* POPUP */
 
     .popup-overlay {
       position: fixed;
@@ -704,9 +680,11 @@
 
       background: rgba(255,255,255,.28);
 
-      -webkit-backdrop-filter: blur(10px);
+      -webkit-backdrop-filter:
+        blur(10px);
 
-      backdrop-filter: blur(10px);
+      backdrop-filter:
+        blur(10px);
 
       opacity: 0;
 
@@ -783,9 +761,7 @@
       line-height: 1.55;
     }
 
-    /* =========================
-       OVERLOAD SCREEN
-    ========================= */
+    /* OVERLOAD */
 
     #overloadScreen {
       position: fixed;
@@ -840,9 +816,7 @@
       padding: 20px;
     }
 
-    /* =========================
-       TABLET / iPAD
-    ========================= */
+    /* iPAD / TABLET */
 
     @media (min-width: 700px) {
 
@@ -851,10 +825,6 @@
           min(760px, calc(100% - 64px));
       }
 
-      /*
-        Tabletlerde blur biraz daha düşük.
-        Görünüm korunurken GPU yükü azalır.
-      */
       .glass {
         -webkit-backdrop-filter:
           blur(12px) saturate(120%);
@@ -869,9 +839,7 @@
       }
     }
 
-    /* =========================
-       TELEFON
-    ========================= */
+    /* TELEFON */
 
     @media (max-width: 520px) {
 
@@ -921,9 +889,7 @@
       }
     }
 
-    /* =========================
-       BLUR FALLBACK
-    ========================= */
+    /* BLUR FALLBACK */
 
     @supports not (
       (backdrop-filter: blur(1px)) or
@@ -942,9 +908,7 @@
       }
     }
 
-    /* =========================
-       REDUCED MOTION
-    ========================= */
+    /* REDUCED MOTION */
 
     @media (prefers-reduced-motion: reduce) {
 
@@ -975,14 +939,10 @@
 
   <main class="page">
 
-    <!-- LOGO -->
-
     <div class="logo">
       R
     </div>
 
-
-    <!-- BAŞLIK -->
 
     <h1>
       This Service Has Been Suspended
@@ -1001,51 +961,40 @@
         <span
           class="time-number"
           id="days"
-        >
-          00
-        </span>
+        >00</span>
 
         <span class="time-label">
           Gün
         </span>
       </div>
 
-
       <div class="time-box">
         <span
           class="time-number"
           id="hours"
-        >
-          00
-        </span>
+        >00</span>
 
         <span class="time-label">
           Saat
         </span>
       </div>
 
-
       <div class="time-box">
         <span
           class="time-number"
           id="minutes"
-        >
-          00
-        </span>
+        >00</span>
 
         <span class="time-label">
           Dakika
         </span>
       </div>
 
-
       <div class="time-box">
         <span
           class="time-number"
           id="seconds"
-        >
-          00
-        </span>
+        >00</span>
 
         <span class="time-label">
           Saniye
@@ -1055,7 +1004,7 @@
     </div>
 
 
-    <!-- X BUTONU -->
+    <!-- X -->
 
     <a
       class="x-button"
@@ -1103,7 +1052,7 @@
       </div>
 
 
-      <!-- CHATIXAI -->
+      <!-- CHATIXAI REKLAMI -->
 
       <div class="sponsored-ad">
 
@@ -1112,9 +1061,11 @@
         </div>
 
 
+        <!-- Banner da artık ChatixAI sitesine yönlendiriyor -->
+
         <a
           class="chatix-banner-link"
-          href="https://x.com/ChatixAI"
+          href="https://chatixai.onrender.com"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="ChatixAI reklamı"
@@ -1137,9 +1088,11 @@
         </div>
 
 
+        <!-- BUTONUN YENİ ADRESİ -->
+
         <a
           class="chatix-button"
-          href="https://x.com/ChatixAI"
+          href="https://chatixai.onrender.com"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -1155,8 +1108,6 @@
 
     </section>
 
-
-    <!-- FOOTER -->
 
     <footer>
       © 2026 RedChat
@@ -1191,9 +1142,7 @@
 
   <script>
 
-    /* =========================
-       SABİT GERİ SAYIM
-    ========================= */
+    /* SABİT GERİ SAYIM */
 
     const targetDate =
       new Date(
@@ -1244,16 +1193,14 @@
       const hours =
         Math.floor(
           (distance /
-            (1000 * 60 * 60)) %
-          24
+            (1000 * 60 * 60)) % 24
         );
 
 
       const minutes =
         Math.floor(
           (distance /
-            (1000 * 60)) %
-          60
+            (1000 * 60)) % 60
         );
 
 
@@ -1285,12 +1232,7 @@
     );
 
 
-    /* =========================
-       OVERLOAD PRANK
-       10 SN SONRA
-       5 SN GÖRÜNÜR
-       SADECE 1 KEZ
-    ========================= */
+    /* OVERLOAD EKRANI */
 
     const overloadScreen =
       document.getElementById(
