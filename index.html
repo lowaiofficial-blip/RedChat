@@ -46,7 +46,7 @@
       align-items: center;
     }
 
-    /* REDCHAT LOGO */
+    /* REDCHAT */
 
     .logo {
       font-size: 30px;
@@ -58,8 +58,6 @@
     .logo span {
       color: #e00000;
     }
-
-    /* MAIN */
 
     h1 {
       margin: 0;
@@ -142,7 +140,7 @@
       }
     }
 
-    /* X BUTTON */
+    /* X */
 
     .x-button {
       margin-top: 30px;
@@ -196,10 +194,12 @@
       gap: 18px;
     }
 
+    /* LOGO ALANI */
+
     .ad-logo-wrap {
-      width: 105px;
-      height: 70px;
-      border-radius: 12px;
+      width: 125px;
+      height: 72px;
+      border-radius: 10px;
       background: #f7f7f7;
       display: flex;
       align-items: center;
@@ -209,8 +209,8 @@
     }
 
     .ad-logo {
-      width: 90px;
-      max-height: 58px;
+      width: 118px;
+      height: 68px;
       object-fit: contain;
       display: block;
     }
@@ -394,13 +394,13 @@
       }
 
       .ad-logo-wrap {
-        width: 78px;
-        height: 60px;
+        width: 92px;
+        height: 62px;
       }
 
       .ad-logo {
-        width: 68px;
-        max-height: 50px;
+        width: 88px;
+        height: 58px;
       }
 
       .banner-title {
@@ -431,7 +431,7 @@
       }
 
       .ad-logo-wrap {
-        width: 90px;
+        width: 100px;
       }
 
       .info-button {
@@ -442,8 +442,6 @@
 </head>
 
 <body>
-
-  <!-- REDCHAT PAGE -->
 
   <main class="page">
 
@@ -489,7 +487,7 @@
 
     </div>
 
-    <!-- X -->
+    <!-- X BUTTON -->
 
     <a
       href="https://x.com/RedChatBusiness"
@@ -506,7 +504,7 @@
       </svg>
     </a>
 
-    <!-- REDCHAT ADS -->
+    <!-- ADVERTISEMENT -->
 
     <div class="ad-label">
       ADVERTISEMENT
@@ -553,7 +551,7 @@
   </main>
 
 
-  <!-- INFORMATION POPUP -->
+  <!-- POPUP -->
 
   <div
     class="popup-overlay"
@@ -585,7 +583,7 @@
   </div>
 
 
-  <!-- SERVER OVERLOAD SCREEN -->
+  <!-- OVERLOAD -->
 
   <div id="overloadScreen">
 
@@ -702,6 +700,7 @@
           values[key];
 
       });
+
     }
 
     updateCountdown();
@@ -741,6 +740,7 @@
         closePopup();
 
       }
+
     }
 
     document.addEventListener(
@@ -757,16 +757,14 @@
 
     /* =========================
        OVERLOAD SCREEN
+       
+       10 seconds:
+       Show overload screen.
 
-       10 seconds after opening:
-       overload screen appears.
+       5 seconds:
+       Return to RedChat.
 
-       It stays for 5 seconds.
-
-       It only happens ONCE
-       in each browser tab.
-
-       New tab = new session.
+       Only once per tab.
     ========================= */
 
     const overloadScreen =
