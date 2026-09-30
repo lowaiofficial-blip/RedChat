@@ -15,11 +15,9 @@
     :root {
       --text: #17181a;
       --secondary: #6d7178;
-
       --glass: rgba(255, 255, 255, .42);
       --glass-strong: rgba(255, 255, 255, .52);
       --glass-border: rgba(255, 255, 255, .72);
-
       --shadow: rgba(40, 45, 55, .08);
     }
 
@@ -37,7 +35,6 @@
     body {
       min-height: 100vh;
       overflow-x: hidden;
-
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -45,7 +42,6 @@
         "SF Pro Text",
         Arial,
         sans-serif;
-
       color: var(--text);
 
       background:
@@ -61,38 +57,26 @@
 
     body::before {
       content: "";
-
       position: fixed;
-
       width: 55vw;
       height: 30vh;
-
       top: -15vh;
       left: 22vw;
-
       background: rgba(255,255,255,.55);
-
       filter: blur(55px);
-
       pointer-events: none;
       z-index: 0;
     }
 
     body::after {
       content: "";
-
       position: fixed;
-
       width: 45vw;
       height: 25vh;
-
       right: -15vw;
       bottom: -10vh;
-
       background: rgba(255,255,255,.35);
-
       filter: blur(60px);
-
       pointer-events: none;
       z-index: 0;
     }
@@ -100,13 +84,9 @@
     .page {
       position: relative;
       z-index: 1;
-
       width: min(760px, calc(100% - 32px));
-
       margin: 0 auto;
-
       min-height: 100vh;
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -122,11 +102,9 @@
     .logo {
       width: 78px;
       height: 78px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       border-radius: 23px;
 
       background:
@@ -138,7 +116,6 @@
         );
 
       color: white;
-
       font-size: 43px;
       font-weight: 700;
 
@@ -152,12 +129,9 @@
 
     .logo::after {
       content: "";
-
       position: absolute;
-
       top: 0;
       left: 0;
-
       width: 100%;
       height: 45%;
 
@@ -173,24 +147,17 @@
 
     h1 {
       margin: 25px 0 8px;
-
       font-size: clamp(28px, 5vw, 40px);
       line-height: 1.1;
-
       font-weight: 700;
-
       letter-spacing: -.035em;
-
       text-align: center;
     }
 
     .subtitle {
       margin: 0 0 34px;
-
       color: var(--secondary);
-
       font-size: 16px;
-
       text-align: center;
     }
 
@@ -207,7 +174,6 @@
         );
 
       border: 1px solid var(--glass-border);
-
       border-radius: 24px;
 
       box-shadow:
@@ -222,41 +188,29 @@
         blur(14px) saturate(125%);
 
       position: relative;
-
       overflow: hidden;
     }
 
     .glass::before {
       content: "";
-
       position: absolute;
-
       left: 12%;
       right: 12%;
       top: 0;
-
       height: 1px;
-
       background: rgba(255,255,255,.9);
-
       pointer-events: none;
     }
 
     .glass::after {
       content: "";
-
       position: absolute;
-
       width: 65%;
       height: 35%;
-
       top: -18%;
       left: -8%;
-
       background: rgba(255,255,255,.16);
-
       transform: rotate(-12deg);
-
       pointer-events: none;
     }
 
@@ -264,28 +218,19 @@
 
     .countdown {
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
-
       padding: 14px;
-
       margin-bottom: 22px;
     }
 
     .time-box {
       min-width: 0;
-
       padding: 17px 8px;
-
       text-align: center;
-
       border-radius: 17px;
 
       background: rgba(255,255,255,.34);
-
       border: 1px solid rgba(255,255,255,.58);
 
       box-shadow:
@@ -293,61 +238,42 @@
         0 4px 14px rgba(40,45,55,.04);
 
       position: relative;
-
       overflow: hidden;
     }
 
     .time-number {
       display: block;
-
-      font-size:
-        clamp(24px, 5vw, 32px);
-
+      font-size: clamp(24px, 5vw, 32px);
       font-weight: 700;
-
       letter-spacing: -.04em;
     }
 
     .time-label {
       display: block;
-
       margin-top: 4px;
-
       color: var(--secondary);
-
       font-size: 11px;
-
       font-weight: 600;
-
       letter-spacing: .04em;
-
       text-transform: uppercase;
     }
 
-    /* X LIQUID GLASS */
+    /* X */
 
     .x-button {
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
-
       gap: 10px;
 
       min-height: 50px;
-
       padding: 0 22px;
-
       border-radius: 18px;
 
       color: #17181a;
-
       text-decoration: none;
-
       font-size: 15px;
-
       font-weight: 600;
-
       letter-spacing: -.01em;
 
       background:
@@ -371,9 +297,7 @@
         blur(12px) saturate(125%);
 
       position: relative;
-
       overflow: hidden;
-
       isolation: isolate;
 
       transition:
@@ -384,36 +308,24 @@
 
     .x-button::before {
       content: "";
-
       position: absolute;
-
       top: 0;
-
       left: 12%;
       right: 12%;
-
       height: 1px;
-
       background: rgba(255,255,255,.95);
-
       pointer-events: none;
     }
 
     .x-button::after {
       content: "";
-
       position: absolute;
-
       width: 70%;
       height: 70%;
-
       top: -45%;
       left: -12%;
-
       background: rgba(255,255,255,.18);
-
       transform: rotate(-12deg);
-
       pointer-events: none;
     }
 
@@ -428,21 +340,370 @@
     .x-icon {
       width: 18px;
       height: 18px;
-
       fill: currentColor;
-
       flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
 
+    /* YENİ DÖNEM BUTONU */
+
+    .new-features-button {
+      margin-top: 18px;
+
+      width: 100%;
+      min-height: 56px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      border: 1px solid rgba(255,255,255,.78);
+      border-radius: 19px;
+
+      color: #17181a;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.64),
+          rgba(255,255,255,.31)
+        );
+
+      box-shadow:
+        0 12px 30px rgba(40,45,55,.07),
+        inset 0 1px 0 rgba(255,255,255,.92);
+
+      -webkit-backdrop-filter:
+        blur(12px) saturate(125%);
+
+      backdrop-filter:
+        blur(12px) saturate(125%);
+
+      font-size: 15px;
+      font-weight: 650;
+
+      cursor: pointer;
+
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+    }
+
+    .new-features-button:active {
+      transform: scale(.97);
+    }
+
+    .new-features-icon {
+      font-size: 18px;
+    }
+
+    /* YENİ DÖNEM MODAL */
+
+    .features-overlay {
+      position: fixed;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      background: rgba(255,255,255,.30);
+
+      -webkit-backdrop-filter: blur(13px);
+      backdrop-filter: blur(13px);
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      z-index: 7000;
+
+      transition:
+        opacity .22s ease,
+        visibility .22s ease;
+    }
+
+    .features-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .features-panel {
+      width: min(500px, 100%);
+      max-height: min(720px, calc(100vh - 40px));
+
+      overflow-y: auto;
+
+      padding: 28px 22px 22px;
+
+      border-radius: 27px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.78),
+          rgba(255,255,255,.48)
+        );
+
+      border: 1px solid rgba(255,255,255,.86);
+
+      box-shadow:
+        0 25px 70px rgba(30,35,45,.15),
+        inset 0 1px 0 rgba(255,255,255,.96);
+
+      -webkit-backdrop-filter:
+        blur(20px) saturate(130%);
+
+      backdrop-filter:
+        blur(20px) saturate(130%);
+
+      transform: translateY(12px) scale(.97);
+
+      transition:
+        transform .25s ease;
+    }
+
+    .features-overlay.active .features-panel {
+      transform: translateY(0) scale(1);
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .features-header-icon {
+      width: 52px;
+      height: 52px;
+
+      margin: 0 auto 13px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 17px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.82),
+          rgba(255,255,255,.42)
+        );
+
+      border: 1px solid rgba(255,255,255,.85);
+
+      box-shadow:
+        0 8px 22px rgba(40,45,55,.07),
+        inset 0 1px 0 rgba(255,255,255,.95);
+
+      font-size: 25px;
+    }
+
+    .features-header h2 {
+      margin: 0;
+      font-size: 23px;
+      letter-spacing: -.025em;
+    }
+
+    .features-header p {
+      margin: 7px 0 0;
+      color: var(--secondary);
+      font-size: 14px;
+    }
+
+    /* AI SHIMMER */
+
+    .thinking {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      min-height: 130px;
+
+      margin-bottom: 4px;
+
+      opacity: 1;
+
+      transition:
+        opacity .25s ease;
+    }
+
+    .thinking.hidden {
+      display: none;
+    }
+
+    .thinking-text {
+      position: relative;
+      overflow: hidden;
+
+      color: #17181a;
+
+      font-size: 17px;
+      font-weight: 600;
+
+      letter-spacing: -.02em;
+
+      padding: 7px 4px;
+    }
+
+    .thinking-text::after {
+      content: "";
+
+      position: absolute;
+
+      top: -30%;
+      bottom: -30%;
+
+      left: -45%;
+
+      width: 32%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(0,0,0,.82),
+          transparent
+        );
+
+      filter: blur(4px);
+
+      transform: skewX(-18deg);
+
+      animation:
+        thinkingShimmer 1.15s ease-in-out infinite;
+    }
+
+    @keyframes thinkingShimmer {
+      0% {
+        left: -45%;
+      }
+
+      100% {
+        left: 120%;
+      }
+    }
+
+    /* ÖZELLİKLER */
+
+    .features-content {
+      display: none;
+      animation: featuresAppear .35s ease forwards;
+    }
+
+    .features-content.active {
+      display: block;
+    }
+
+    @keyframes featuresAppear {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feature-card {
       position: relative;
 
-      z-index: 1;
+      padding: 17px;
+
+      margin-top: 11px;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.54),
+          rgba(255,255,255,.28)
+        );
+
+      border: 1px solid rgba(255,255,255,.70);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.82),
+        0 7px 20px rgba(40,45,55,.045);
+
+      overflow: hidden;
+    }
+
+    .feature-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 55%;
+      height: 1px;
+
+      top: 0;
+      left: 22%;
+
+      background: rgba(255,255,255,.9);
+    }
+
+    .feature-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 6px;
+
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .feature-icon {
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+
+    .feature-text {
+      margin: 0;
+
+      color: var(--secondary);
+
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    .features-close {
+      width: 100%;
+      min-height: 46px;
+
+      margin-top: 18px;
+
+      border: 1px solid rgba(255,255,255,.76);
+      border-radius: 15px;
+
+      background: rgba(255,255,255,.48);
+
+      color: #17181a;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.85),
+        0 6px 17px rgba(40,45,55,.05);
     }
 
     /* ADS */
 
     .ad-section {
       width: 100%;
-
       margin-top: 34px;
     }
 
@@ -452,21 +713,17 @@
       color: #8a8e94;
 
       font-size: 10px;
-
       font-weight: 700;
 
       letter-spacing: .13em;
-
       text-align: center;
     }
 
     .ad-banner {
       width: 100%;
-
       min-height: 110px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -494,7 +751,6 @@
         blur(13px) saturate(120%);
 
       position: relative;
-
       overflow: hidden;
     }
 
@@ -513,13 +769,10 @@
 
     .sponsored-ad {
       width: 100%;
-
       margin-top: 18px;
 
       display: flex;
-
       flex-direction: column;
-
       align-items: center;
     }
 
@@ -529,7 +782,6 @@
       color: #8a8e94;
 
       font-size: 10px;
-
       font-weight: 700;
 
       letter-spacing: .12em;
@@ -537,19 +789,15 @@
 
     .chatix-banner-link {
       display: block;
-
       width: 100%;
-
       text-decoration: none;
     }
 
     .chatix-banner {
       width: 100%;
-
       min-height: 100px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -583,7 +831,6 @@
       display: block;
 
       width: 100%;
-
       max-height: 110px;
 
       object-fit: contain;
@@ -607,7 +854,6 @@
       min-height: 44px;
 
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
 
@@ -620,7 +866,6 @@
       text-decoration: none;
 
       font-size: 14px;
-
       font-weight: 600;
 
       background: rgba(255,255,255,.5);
@@ -631,11 +876,8 @@
         0 7px 18px rgba(40,45,55,.06),
         inset 0 1px 0 rgba(255,255,255,.8);
 
-      -webkit-backdrop-filter:
-        blur(10px);
-
-      backdrop-filter:
-        blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
     }
 
     .sponsored-label {
@@ -644,7 +886,6 @@
       color: #a0a3a8;
 
       font-size: 9px;
-
       font-weight: 700;
 
       letter-spacing: .12em;
@@ -664,7 +905,7 @@
       text-align: center;
     }
 
-    /* POPUP */
+    /* ESKİ POPUP */
 
     .popup-overlay {
       position: fixed;
@@ -672,7 +913,6 @@
       inset: 0;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -680,16 +920,11 @@
 
       background: rgba(255,255,255,.28);
 
-      -webkit-backdrop-filter:
-        blur(10px);
-
-      backdrop-filter:
-        blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
 
       opacity: 0;
-
       visibility: hidden;
-
       pointer-events: none;
 
       z-index: 5000;
@@ -701,9 +936,7 @@
 
     .popup-overlay.active {
       opacity: 1;
-
       visibility: visible;
-
       pointer-events: auto;
     }
 
@@ -774,14 +1007,11 @@
       background: #fff;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
       opacity: 0;
-
       visibility: hidden;
-
       pointer-events: none;
 
       z-index: 9999;
@@ -792,9 +1022,7 @@
 
     #overloadScreen.active {
       opacity: 1;
-
       visibility: visible;
-
       pointer-events: all;
     }
 
@@ -808,7 +1036,6 @@
         sans-serif;
 
       font-size: 18px;
-
       font-weight: 400;
 
       text-align: center;
@@ -816,7 +1043,7 @@
       padding: 20px;
     }
 
-    /* iPAD / TABLET */
+    /* TABLET */
 
     @media (min-width: 700px) {
 
@@ -870,13 +1097,11 @@
 
       .countdown {
         gap: 7px;
-
         padding: 10px;
       }
 
       .time-box {
         padding: 14px 4px;
-
         border-radius: 15px;
       }
 
@@ -886,6 +1111,10 @@
 
       .time-label {
         font-size: 9px;
+      }
+
+      .features-panel {
+        padding: 24px 17px 18px;
       }
     }
 
@@ -901,7 +1130,10 @@
       .chatix-banner,
       .popup,
       .x-button,
-      .chatix-button {
+      .chatix-button,
+      .new-features-button,
+      .features-panel,
+      .feature-card {
 
         background:
           rgba(255,255,255,.92);
@@ -917,7 +1149,6 @@
       *::after {
 
         animation-duration: .01ms !important;
-
         transition-duration: .01ms !important;
       }
     }
@@ -929,9 +1160,11 @@
   <!-- OVERLOAD EKRANI -->
 
   <div id="overloadScreen">
+
     <div id="overloadText">
       Our servers are currently overloaded.
     </div>
+
   </div>
 
 
@@ -948,6 +1181,7 @@
       This Service Has Been Suspended
     </h1>
 
+
     <p class="subtitle">
       RedChat is currently unavailable.
     </p>
@@ -958,6 +1192,7 @@
     <div class="glass countdown">
 
       <div class="time-box">
+
         <span
           class="time-number"
           id="days"
@@ -966,9 +1201,12 @@
         <span class="time-label">
           Gün
         </span>
+
       </div>
 
+
       <div class="time-box">
+
         <span
           class="time-number"
           id="hours"
@@ -977,9 +1215,12 @@
         <span class="time-label">
           Saat
         </span>
+
       </div>
 
+
       <div class="time-box">
+
         <span
           class="time-number"
           id="minutes"
@@ -988,9 +1229,12 @@
         <span class="time-label">
           Dakika
         </span>
+
       </div>
 
+
       <div class="time-box">
+
         <span
           class="time-number"
           id="seconds"
@@ -999,6 +1243,7 @@
         <span class="time-label">
           Saniye
         </span>
+
       </div>
 
     </div>
@@ -1019,9 +1264,11 @@
         viewBox="0 0 24 24"
         aria-hidden="true"
       >
+
         <path
           d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817-5.964 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"
         />
+
       </svg>
 
       <span>
@@ -1029,6 +1276,25 @@
       </span>
 
     </a>
+
+
+    <!-- YENİ DÖNEM BUTONU -->
+
+    <button
+      class="new-features-button"
+      id="newFeaturesButton"
+      type="button"
+    >
+
+      <span class="new-features-icon">
+        ✨
+      </span>
+
+      <span>
+        Yeni Dönemde Neler Var?
+      </span>
+
+    </button>
 
 
     <!-- REKLAMLAR -->
@@ -1052,7 +1318,7 @@
       </div>
 
 
-      <!-- CHATIXAI REKLAMI -->
+      <!-- CHATIXAI -->
 
       <div class="sponsored-ad">
 
@@ -1060,8 +1326,6 @@
           ADVERTISEMENT
         </div>
 
-
-        <!-- Banner da artık ChatixAI sitesine yönlendiriyor -->
 
         <a
           class="chatix-banner-link"
@@ -1087,8 +1351,6 @@
           Yapay zekâ destekli sohbet asistanını keşfet.
         </div>
 
-
-        <!-- BUTONUN YENİ ADRESİ -->
 
         <a
           class="chatix-button"
@@ -1116,7 +1378,140 @@
   </main>
 
 
-  <!-- POPUP -->
+  <!-- YENİ DÖNEM PANELİ -->
+
+  <div
+    class="features-overlay"
+    id="featuresOverlay"
+  >
+
+    <div
+      class="features-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="featuresTitle"
+    >
+
+      <div class="features-header">
+
+        <div class="features-header-icon">
+          ✨
+        </div>
+
+        <h2 id="featuresTitle">
+          Yeni Dönemde Neler Var?
+        </h2>
+
+        <p>
+          RedChat için gelen yenilikler
+        </p>
+
+      </div>
+
+
+      <!-- AI DÜŞÜNÜYOR -->
+
+      <div
+        class="thinking"
+        id="thinking"
+      >
+
+        <div class="thinking-text">
+          Düşünüyorum...
+        </div>
+
+      </div>
+
+
+      <!-- İÇERİK -->
+
+      <div
+        class="features-content"
+        id="featuresContent"
+      >
+
+        <div class="feature-card">
+
+          <div class="feature-title">
+
+            <span class="feature-icon">
+              🛡️
+            </span>
+
+            <span>
+              Engelleme Özelliği
+            </span>
+
+          </div>
+
+          <p class="feature-text">
+            Artık sizi rahatsız eden kullanıcıları
+            engelleyebilirsiniz. 🚫
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-title">
+
+            <span class="feature-icon">
+              💬
+            </span>
+
+            <span>
+              Daha Kontrollü Sohbetler
+            </span>
+
+          </div>
+
+          <p class="feature-text">
+            İstemediğiniz kullanıcılarla etkileşimi
+            daha kolay kontrol edebilirsiniz. ✨
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-title">
+
+            <span class="feature-icon">
+              🚀
+            </span>
+
+            <span>
+              Yeni RedChat Dönemi
+            </span>
+
+          </div>
+
+          <p class="feature-text">
+            Yeni dönemle birlikte daha fazla özellik,
+            geliştirme ve yenilik sizleri bekliyor. 🔴
+          </p>
+
+        </div>
+
+
+        <button
+          class="features-close"
+          id="featuresClose"
+          type="button"
+        >
+          Kapat
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ESKİ POPUP -->
 
   <div
     class="popup-overlay"
@@ -1232,6 +1627,118 @@
     );
 
 
+    /* YENİ DÖNEM PANELİ */
+
+    const newFeaturesButton =
+      document.getElementById(
+        "newFeaturesButton"
+      );
+
+    const featuresOverlay =
+      document.getElementById(
+        "featuresOverlay"
+      );
+
+    const featuresClose =
+      document.getElementById(
+        "featuresClose"
+      );
+
+    const thinking =
+      document.getElementById(
+        "thinking"
+      );
+
+    const featuresContent =
+      document.getElementById(
+        "featuresContent"
+      );
+
+
+    newFeaturesButton.addEventListener(
+      "click",
+      () => {
+
+        featuresOverlay.classList.add(
+          "active"
+        );
+
+        thinking.classList.remove(
+          "hidden"
+        );
+
+        featuresContent.classList.remove(
+          "active"
+        );
+
+
+        setTimeout(() => {
+
+          thinking.classList.add(
+            "hidden"
+          );
+
+          featuresContent.classList.add(
+            "active"
+          );
+
+        }, 1700);
+
+      }
+    );
+
+
+    function closeFeatures() {
+
+      featuresOverlay.classList.remove(
+        "active"
+      );
+
+    }
+
+
+    featuresClose.addEventListener(
+      "click",
+      closeFeatures
+    );
+
+
+    featuresOverlay.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target ===
+          featuresOverlay
+        ) {
+
+          closeFeatures();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape" &&
+          featuresOverlay.classList.contains(
+            "active"
+          )
+        ) {
+
+          closeFeatures();
+
+        }
+
+      }
+    );
+
+
     /* OVERLOAD EKRANI */
 
     const overloadScreen =
@@ -1270,6 +1777,7 @@
         }, 5000);
 
       }, 10000);
+
     }
 
   </script>
