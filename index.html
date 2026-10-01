@@ -113,6 +113,20 @@ h1 {
     line-height: 1.5;
 }
 
+/* Açılış mesajı */
+.open-message {
+    display: none;
+    margin-top: 13px;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.open-message strong {
+    color: #111;
+}
+
+/* Sayaç */
 .countdown-box {
     margin: 30px auto 20px;
     padding: 22px 16px;
@@ -151,6 +165,7 @@ h1 {
     letter-spacing: .7px;
 }
 
+/* Butonlar */
 .actions {
     display: flex;
     justify-content: center;
@@ -191,6 +206,22 @@ h1 {
     fill: currentColor;
 }
 
+/* Gerçek site butonu */
+.launch-button {
+    display: none;
+    background: #111;
+    color: #fff;
+    border-color: #111;
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.14),
+        inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.launch-button:hover {
+    background: #222;
+}
+
+/* Özellik butonu */
 .features-button {
     margin-top: 16px;
 }
@@ -391,7 +422,7 @@ footer {
     font-weight: 600;
 }
 
-/* iPad / tablet */
+/* Tablet */
 @media (min-width: 700px) and (max-width: 1100px) {
     .page {
         padding-top: 40px;
@@ -438,10 +469,6 @@ footer {
     .ticker-track {
         animation: none;
     }
-
-    * {
-        scroll-behavior: auto !important;
-    }
 }
 </style>
 </head>
@@ -451,16 +478,17 @@ footer {
 <!-- ÜST KAYAN YAZI -->
 <div class="ticker">
     <div class="ticker-track">
+
         <div class="ticker-item">👀 HAZIR MISINIZ?</div>
         <div class="ticker-item">🔴 YENİ DÖNEME ÇOK AZ KALDI!</div>
         <div class="ticker-item">⏳ GERİ SAYIM DEVAM EDİYOR...</div>
         <div class="ticker-item">🚀 1 EKİM'DE YENİDEN</div>
 
-        <!-- Kesintisiz görünüm için tekrar -->
         <div class="ticker-item">👀 HAZIR MISINIZ?</div>
         <div class="ticker-item">🔴 YENİ DÖNEME ÇOK AZ KALDI!</div>
         <div class="ticker-item">⏳ GERİ SAYIM DEVAM EDİYOR...</div>
         <div class="ticker-item">🚀 1 EKİM'DE YENİDEN</div>
+
     </div>
 </div>
 
@@ -469,13 +497,19 @@ footer {
 
         <div class="logo">R</div>
 
-        <h1>This Service Has Been Suspended</h1>
+        <h1 id="mainTitle">This Service Has Been Suspended</h1>
 
-        <div class="subtitle">
+        <div class="subtitle" id="mainSubtitle">
             RedChat is currently unavailable.
         </div>
 
-        <div class="countdown-box">
+        <div class="open-message" id="openMessage">
+            🎉 <strong>RedChat artık yayında!</strong><br>
+            Yeni dönem başladı.
+        </div>
+
+        <!-- SAYAÇ -->
+        <div class="countdown-box" id="countdownBox">
             <div class="countdown">
 
                 <div class="time">
@@ -501,6 +535,7 @@ footer {
             </div>
         </div>
 
+        <!-- BUTONLAR -->
         <div class="actions">
 
             <a
@@ -515,13 +550,22 @@ footer {
                 RedChatBusiness
             </a>
 
+            <!-- AÇILAN GERÇEK SİTE BUTONU -->
+            <a
+                class="glass-button launch-button"
+                id="launchButton"
+                href="https://redchat-r9g4.onrender.com/"
+            >
+                🔴 RedChat'e Git →
+            </a>
+
         </div>
 
         <button class="glass-button features-button" id="featuresButton">
             ✨ Yeni Dönemde Neler Var?
         </button>
 
-        <div class="info">
+        <div class="info" id="infoText">
             Yeni dönem için hazırlıklarımız devam ediyor.<br>
             1 Ekim 2026 tarihinde yeniden görüşmek üzere. 🔴
         </div>
@@ -556,7 +600,9 @@ footer {
 
                 <div class="ad-cta">
                     <strong>ChatixAI'yi Keşfet →</strong>
-                    <span>Yapay zekâ destekli sohbet asistanını keşfet.</span>
+                    <span>
+                        Yapay zekâ destekli sohbet asistanını keşfet.
+                    </span>
                 </div>
             </a>
 
@@ -616,7 +662,7 @@ footer {
     </div>
 </div>
 
-<!-- OVERLOAD EKRANI -->
+<!-- OVERLOAD -->
 <div class="overload" id="overload">
     <div class="overload-text">
         Our servers are currently overloaded.
@@ -624,30 +670,83 @@ footer {
 </div>
 
 <script>
-/* SABİT REDCHAT GERİ SAYIMI */
+
+/* =========================================
+   REDCHAT GERİ SAYIM
+========================================= */
+
 const targetDate = new Date(
     "2026-10-01T00:00:00+03:00"
 ).getTime();
 
+const realRedChat =
+    "https://redchat-r9g4.onrender.com/";
+
+let opened = false;
+
+function showRedChatIsOpen() {
+
+    if (opened) return;
+    opened = true;
+
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+
+    document.getElementById("mainTitle").textContent =
+        "RedChat is now live";
+
+    document.getElementById("mainSubtitle").textContent =
+        "The new RedChat era has officially started.";
+
+    document.getElementById("openMessage").style.display =
+        "block";
+
+    document.getElementById("launchButton").style.display =
+        "inline-flex";
+
+    document.getElementById("infoText").innerHTML =
+        "🎉 RedChat yeniden yayında!<br>" +
+        "Yeni döneme hoş geldiniz. 🔴";
+
+    document.querySelector(".ticker-track").innerHTML = `
+        <div class="ticker-item">🎉 REDCHAT YENİDEN YAYINDA!</div>
+        <div class="ticker-item">🔴 YENİ DÖNEM BAŞLADI!</div>
+        <div class="ticker-item">🚀 HEMEN REDCHAT'E GİT!</div>
+        <div class="ticker-item">👀 BEKLEYİŞ SONA ERDİ!</div>
+
+        <div class="ticker-item">🎉 REDCHAT YENİDEN YAYINDA!</div>
+        <div class="ticker-item">🔴 YENİ DÖNEM BAŞLADI!</div>
+        <div class="ticker-item">🚀 HEMEN REDCHAT'E GİT!</div>
+        <div class="ticker-item">👀 BEKLEYİŞ SONA ERDİ!</div>
+    `;
+
+    document.getElementById("launchButton").focus();
+}
+
 function updateCountdown() {
+
     const now = Date.now();
     const distance = targetDate - now;
 
     if (distance <= 0) {
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+        showRedChatIsOpen();
         return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
     const hours = Math.floor(
         (distance / (1000 * 60 * 60)) % 24
     );
+
     const minutes = Math.floor(
         (distance / (1000 * 60)) % 60
     );
+
     const seconds = Math.floor(
         (distance / 1000) % 60
     );
@@ -669,12 +768,24 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 
-/* YENİ DÖNEM MODALI */
-const featuresButton = document.getElementById("featuresButton");
-const featuresModal = document.getElementById("featuresModal");
-const closeFeatures = document.getElementById("closeFeatures");
-const thinking = document.getElementById("thinking");
-const featureList = document.getElementById("featureList");
+/* =========================================
+   YENİ DÖNEM MODALI
+========================================= */
+
+const featuresButton =
+    document.getElementById("featuresButton");
+
+const featuresModal =
+    document.getElementById("featuresModal");
+
+const closeFeatures =
+    document.getElementById("closeFeatures");
+
+const thinking =
+    document.getElementById("thinking");
+
+const featureList =
+    document.getElementById("featureList");
 
 featuresButton.addEventListener("click", () => {
 
@@ -684,8 +795,10 @@ featuresButton.addEventListener("click", () => {
     featureList.style.display = "none";
 
     setTimeout(() => {
+
         thinking.style.display = "none";
         featureList.style.display = "flex";
+
     }, 1700);
 });
 
@@ -694,20 +807,28 @@ closeFeatures.addEventListener("click", () => {
 });
 
 featuresModal.addEventListener("click", (event) => {
+
     if (event.target === featuresModal) {
         featuresModal.classList.remove("show");
     }
+
 });
 
 document.addEventListener("keydown", (event) => {
+
     if (event.key === "Escape") {
         featuresModal.classList.remove("show");
     }
+
 });
 
 
-/* 10 SANİYE SONRA BİR KEZ OVERLOAD EKRANI */
-const overload = document.getElementById("overload");
+/* =========================================
+   10 SANİYELİK OVERLOAD EKRANI
+========================================= */
+
+const overload =
+    document.getElementById("overload");
 
 if (!sessionStorage.getItem("redchat_overload_shown")) {
 
@@ -721,11 +842,14 @@ if (!sessionStorage.getItem("redchat_overload_shown")) {
         );
 
         setTimeout(() => {
+
             overload.style.display = "none";
+
         }, 5000);
 
     }, 10000);
 }
+
 </script>
 
 </body>
